@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.m \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/FCacheNode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FCachePolicy.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FCompoundWrite.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQuerySpec.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FStorageEngine.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FLevelDBStorageEngine.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPruneForest.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQuery.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQueryManager.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h

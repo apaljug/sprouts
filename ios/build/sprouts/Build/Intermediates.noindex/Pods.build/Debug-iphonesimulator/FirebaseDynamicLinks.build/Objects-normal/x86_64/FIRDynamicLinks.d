@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDynamicLinks.m \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/Public/FIRDynamicLinks.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/Public/FIRDynamicLink.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/Public/FIRDynamicLinksCommon.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseAnalyticsInterop/FIRAnalyticsInterop.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRAppInternal.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRErrors.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRErrorCode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRComponent.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRComponentContainer.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRComponentType.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRLibrary.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRDependency.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIROptionsInternal.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIROptions.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDLScionLogging.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FDLURLComponents/FDLURLComponents+Private.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/Public/FDLURLComponents.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDLRetrievalProcessFactory.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDLRetrievalProcessProtocols.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDLRetrievalProcessResult.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDynamicLink+Private.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDynamicLinkNetworking.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDynamicLinks+FirstParty.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/FIRDynamicLinks+Private.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/Logging/FDLLogging.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseDynamicLinks/Firebase/DynamicLinks/Utilities/FDLUtilities.h

@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceID.m \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/Public/FIRInstanceID.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRAppInternal.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRErrors.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRErrorCode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRComponent.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRComponentContainer.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRComponentType.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIRLibrary.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/FirebaseCore/FIROptions.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/GoogleUtilities/GULAppEnvironmentUtil.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/Private/FIRInstanceID+Private.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/Private/FIRInstanceIDCheckinPreferences.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDAuthService.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDCheckinService.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDUtilities.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDCombinedHandler.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDDefines.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairStore.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDLogger.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRIMessageCode.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDStore.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDTokenInfo.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDAPNSInfo.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDTokenManager.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDVersionUtilities.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.h

@@ -1,0 +1,47 @@
+dependencies: \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/gRPC-Core/src/core/tsi/alts/crypt/aes_gcm.cc \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Target\ Support\ Files/gRPC-Core/gRPC-Core-prefix.pch \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/support/port_platform.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/port_platform.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/gRPC-Core/src/core/tsi/grpc_shadow_boringssl.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/gRPC-Core/src/core/tsi/alts/crypt/gsec.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/grpc.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/status.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/status.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/byte_buffer.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/byte_buffer.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/grpc_types.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/compression_types.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/gpr_types.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/slice.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/gpr_slice.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/slice_buffer.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/slice.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/support/sync.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/sync.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/sync_generic.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/atm.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/atm_gcc_atomic.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/sync_posix.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/connectivity_state.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/propagation_bits.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/support/time.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/bio.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/base.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/is_boringssl.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/opensslconf.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/buffer.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/buf.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/err.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/ex_data.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/stack.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/type_check.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/thread.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/evp.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/aead.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/base64.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/cipher.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/digest.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/nid.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Public/BoringSSL-GRPC/openssl_grpc/hmac.h \
+  /Users/andreaspaljug/Documents/gtFall2019/i2p/react-native-firebase-starter/ios/Pods/Headers/Private/gRPC-Core/grpc/support/alloc.h
