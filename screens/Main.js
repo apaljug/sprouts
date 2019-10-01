@@ -12,22 +12,46 @@ import GlobalStyle from 'style/GlobalStyle'
 import ToggleSwitch from 'components/ToggleSwitch'
 
 export default class Main extends React.Component {
-  state = { currentUser: null }
+  constructor(props) {
+    super(props);
+
+    this.updateCircles = this.updateCircles.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+
+    this.state = {
+      currentUser: null,
+      nutrientDays: 0,
+      waterLevel: 0,
+    };
+  }
+
   signOutUser = async () => {
        try {
            await firebase.auth().signOut();
        } catch (e) {
            console.log(e);
        }
-  }
-
-
-
+  };
 
   componentDidMount() {
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
-}
+    this.updateCircles();
+    /*const userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('users/' + userId).set({
+      waterLevel: 1,
+      nutrientDays: 30
+    });*/
+  }
+
+  updateCircles() {
+    const userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      this.setState({nutrientDays: snapshot.val().nutrientDays,
+        waterLevel: snapshot.val().waterLevel});
+      console.log(snapshot.val().nutrientDays)
+    }.bind(this));
+  }
 
   render() {
     const { currentUser } = this.state
@@ -90,10 +114,10 @@ export default class Main extends React.Component {
               <View style={{justifyContent: 'center'}}>
                 <View style={styles.centerText}>
                   <Text style={{color: "#3883FC", fontSize: 20}}>
-                    78%
+                    {this.state.waterLevel * 100}%
                   </Text>
                 </View>
-                <ProgressCircle percent={0.78} primaryColor={"#3883FC"} secondaryColor={"#6BA3FD"}/>
+                <ProgressCircle percent={this.state.waterLevel} primaryColor={"#3883FC"} secondaryColor={"#6BA3FD"}/>
               </View>
             </View>
 
@@ -107,13 +131,13 @@ export default class Main extends React.Component {
               <View style={{justifyContent: 'center'}}>
                 <View style={styles.centerText}>
                   <Text style={{color: "#428D59", fontSize: 20}}>
-                    8
+                    {this.state.nutrientDays}
                   </Text>
                   <Text style={{color: "#428D59", fontSize: 10}}>
                     days left
                   </Text>
                 </View>
-                <ProgressCircle percent={0.6} primaryColor={"#428D59"} secondaryColor={"#7CEB9E"}/>
+                <ProgressCircle percent={(this.state.nutrientDays)/30} primaryColor={"#428D59"} secondaryColor={"#7CEB9E"}/>
               </View>
             </View>
           </View>
