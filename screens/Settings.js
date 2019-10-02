@@ -10,11 +10,20 @@ export default class Settings extends React.Component {
   constructor(props) {
     super(props);
 
+    this.componentDidMount = this.componentDidMount.bind(this);
+
     this.state = {
       currentUser: null,
       nutrientDays: 0,
       waterLevel: 0,
     };
+  }
+
+  static navigationOptions = { title: 'Settings' };
+
+  componentDidMount() {
+    const { currentUser } = firebase.auth()
+    this.setState({ currentUser })
   }
 
   render() {
@@ -24,8 +33,7 @@ export default class Settings extends React.Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-          <Text style={[GlobalStyle.fontStyles, styles.header]}>Settings</Text>
-          <Text>{currentUser}</Text>
+          <Text>{currentUser && currentUser.email}</Text>
         </SafeAreaView>
       </Fragment>
     );

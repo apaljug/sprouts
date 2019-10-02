@@ -5,6 +5,7 @@ StyleSheet, Platform,   StatusBar,
   Switch, Text, View , Button} from 'react-native'
 import firebase from 'react-native-firebase'
 import { Icon } from 'react-native-elements';
+import { NavigationActions } from 'react-navigation'
 
 
 import PlantCircle from 'components/PlantCircle'
@@ -26,6 +27,8 @@ export default class Main extends React.Component {
     };
   }
 
+  static navigationOptions = { header: null };
+
   signOutUser = async () => {
        try {
            await firebase.auth().signOut();
@@ -35,8 +38,8 @@ export default class Main extends React.Component {
   };
 
   componentDidMount() {
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
+    const { currentUser } = firebase.auth();
+    this.setState({ currentUser });
     this.updateCircles();
     /*const userId = firebase.auth().currentUser.uid;
     firebase.database().ref('users/' + userId).set({
