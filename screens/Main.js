@@ -4,6 +4,7 @@ import {   SafeAreaView,
 StyleSheet, Platform,   StatusBar,
   Switch, Text, View , Button} from 'react-native'
 import firebase from 'react-native-firebase'
+import { Icon } from 'react-native-elements';
 
 
 import PlantCircle from 'components/PlantCircle'
@@ -53,8 +54,10 @@ export default class Main extends React.Component {
     }.bind(this));
   }
 
+
+
   render() {
-    const { currentUser } = this.state
+    const { currentUser } = this.state;
 
     const DIAMETER = 75;
     const startValue = true;
@@ -63,9 +66,20 @@ export default class Main extends React.Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-
           <View>
-            <Text style={[GlobalStyle.fontStyles, styles.header]}>My Dashboard</Text>
+            <View style={styles.navBar}>
+              <View style={styles.leftContainer}>
+                <View style={{marginLeft: 25}}>
+                  <Icon name={'cog'}
+                        type={'font-awesome'}
+                        color={'#707070'}
+                        onPress={() => this.props.navigation.navigate('Settings')}
+                  />
+                </View>
+              </View>
+              <Text style={[GlobalStyle.fontStyles, styles.header]}>My Dashboard</Text>
+              <View style={styles.rightContainer}/>
+            </View>
             <View style={[styles.modWrapper, {backgroundColor: '#8BD9C7'}]}>
               <Text style={[GlobalStyle.fontStyles, styles.modTitle]}>
                 My Plants
@@ -209,6 +223,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center'
   },
-
-
+  navBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  leftContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems:'center'
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  settings: {
+    marginLeft: 25
+  }
 });
