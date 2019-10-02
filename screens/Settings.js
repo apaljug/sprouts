@@ -26,6 +26,14 @@ export default class Settings extends React.Component {
     this.setState({ currentUser })
   }
 
+  signOutUser = async () => {
+    try {
+      await firebase.auth().signOut();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   render() {
     const { currentUser } = this.state;
 
@@ -33,7 +41,7 @@ export default class Settings extends React.Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-          <Text>{currentUser && currentUser.email}</Text>
+          <Button title={"Log Out " + (currentUser && currentUser.email)} onPress={() => this.signOutUser()} />
         </SafeAreaView>
       </Fragment>
     );
@@ -51,4 +59,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     margin: 10,
   },
+  optionFont: {
+    fontSize: 15,
+
+  }
 });
