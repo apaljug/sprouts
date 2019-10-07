@@ -9,7 +9,7 @@ export default StyleSheet.create({
     fontSize: 30,
   },
   fontStyles: {
-    color: '#707070',
+    color: '#4B4B4B',
   },
   shadow: {
     shadowColor: 'black',

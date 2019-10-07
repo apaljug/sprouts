@@ -4,6 +4,8 @@ import {   SafeAreaView,
 StyleSheet, Platform,   StatusBar,
   Switch, Text, View , Button} from 'react-native'
 import firebase from 'react-native-firebase'
+import { Icon } from 'react-native-elements';
+import { NavigationActions } from 'react-navigation'
 
 
 import PlantCircle from 'components/PlantCircle'
@@ -25,17 +27,11 @@ export default class Main extends React.Component {
     };
   }
 
-  signOutUser = async () => {
-       try {
-           await firebase.auth().signOut();
-       } catch (e) {
-           console.log(e);
-       }
-  };
+  static navigationOptions = { header: null };
 
   componentDidMount() {
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
+    const { currentUser } = firebase.auth();
+    this.setState({ currentUser });
     this.updateCircles();
     /*const userId = firebase.auth().currentUser.uid;
     firebase.database().ref('users/' + userId).set({
@@ -53,8 +49,10 @@ export default class Main extends React.Component {
     }.bind(this));
   }
 
+
+
   render() {
-    const { currentUser } = this.state
+    const { currentUser } = this.state;
 
     const DIAMETER = 75;
     const startValue = true;
@@ -63,9 +61,20 @@ export default class Main extends React.Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-
           <View>
-            <Text style={[GlobalStyle.fontStyles, styles.header]}>My Dashboard</Text>
+            <View style={styles.navBar}>
+              <View style={styles.leftContainer}>
+                <View style={{marginLeft: 25}}>
+                  <Icon name={'cog'}
+                        type={'font-awesome'}
+                        color={'#707070'}
+                        onPress={() => this.props.navigation.navigate('Settings')}
+                  />
+                </View>
+              </View>
+              <Text style={[GlobalStyle.fontStyles, styles.header]}>My Dashboard</Text>
+              <View style={styles.rightContainer}/>
+            </View>
             <View style={[styles.modWrapper, {backgroundColor: '#8BD9C7'}]}>
               <Text style={[GlobalStyle.fontStyles, styles.modTitle]}>
                 My Plants
@@ -90,7 +99,7 @@ export default class Main extends React.Component {
             <View style={{flexDirection: 'row'}}>
               <View style={{alignSelf: 'flex-start'}}>
                 <Text style={[GlobalStyle.fontStyles, styles.modLeftTitle]}>
-                  My Plants
+                  Lights
                 </Text>
                 <Text style={[GlobalStyle.fontStyles, styles.modLeftSubtitle]}>
                   My Planter
@@ -113,11 +122,11 @@ export default class Main extends React.Component {
               </Text>
               <View style={{justifyContent: 'center'}}>
                 <View style={styles.centerText}>
-                  <Text style={{color: "#3883FC", fontSize: 20}}>
+                  <Text style={{color: "#0361F8", fontSize: 20}}>
                     {this.state.waterLevel * 100}%
                   </Text>
                 </View>
-                <ProgressCircle percent={this.state.waterLevel} primaryColor={"#3883FC"} secondaryColor={"#6BA3FD"}/>
+                <ProgressCircle percent={this.state.waterLevel} primaryColor={"#0361F8"} secondaryColor={"#6BA3FD"}/>
               </View>
             </View>
 
@@ -130,22 +139,16 @@ export default class Main extends React.Component {
               </Text>
               <View style={{justifyContent: 'center'}}>
                 <View style={styles.centerText}>
-                  <Text style={{color: "#428D59", fontSize: 20}}>
+                  <Text style={{color: "#008E2C", fontSize: 20}}>
                     {this.state.nutrientDays}
                   </Text>
-                  <Text style={{color: "#428D59", fontSize: 10}}>
+                  <Text style={{color: "#008E2C", fontSize: 10}}>
                     days left
                   </Text>
                 </View>
-                <ProgressCircle percent={(this.state.nutrientDays)/30} primaryColor={"#428D59"} secondaryColor={"#7CEB9E"}/>
+                <ProgressCircle percent={(this.state.nutrientDays)/30} primaryColor={"#008E2C"} secondaryColor={"#7CEB9E"}/>
               </View>
             </View>
-          </View>
-          <View style={[styles.modWrapper, {backgroundColor: '#D3D3D3'}]}>
-              <Text style={styles.modTitle}>
-                Hi {currentUser && currentUser.email}!
-              </Text>
-              <Button style={styles.centerText} title="logout" onPress={() => this.signOutUser()} />
           </View>
         </SafeAreaView>
       </Fragment>
@@ -209,6 +212,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center'
   },
-
-
+  navBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  leftContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems:'center'
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  settings: {
+    marginLeft: 25
+  }
 });
