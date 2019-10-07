@@ -9,12 +9,16 @@ import Loading from 'screens/Loading'
 import SignUp from 'screens/SignUp'
 import Login from 'screens/Login'
 import Main from 'screens/Main'
+import DetailScreen from './screens/DetailScreen'
+import InfoScreen from './screens/InfoScreen'
 // create our app's navigation stack
 const RootStack = createSwitchNavigator(  {
     Loading,
     SignUp,
     Login,
-    Main
+    Main,
+    DetailScreen,
+    InfoScreen,
   },
   {
     initialRouteName: 'Loading'
