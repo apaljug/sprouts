@@ -283,7 +283,9 @@ PODS:
     - React
   - RNGestureHandler (1.4.1):
     - React
-  - RNSVG (9.9.9):
+  - RNSVG (9.11.1):
+    - React
+  - RNVectorIcons (6.6.0):
     - React
   - yoga (0.60.5.React)
 
@@ -323,10 +325,11 @@ DEPENDENCIES:
   - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
     - BoringSSL-GRPC
     - Crashlytics
@@ -408,6 +411,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -467,9 +472,10 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
   RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
-  RNSVG: b7e8745a87c046386569eecb437b3040cc6a7954
+  RNSVG: be27aa7c58819f97399388ae53d7fa0572f32c7f
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 
 PODFILE CHECKSUM: 374c281e827868d7272f47a6edce7a5b225b0600
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
