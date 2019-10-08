@@ -47,7 +47,7 @@ export default class Main extends React.Component {
     const userId = firebase.auth().currentUser.uid;
     console.log(userId +"id")
 
-    firebase.database().ref('/users/' + userId ).once('value').then(function(snapshot) {
+    firebase.database().ref('/users/' + userId +"/planter").once('value').then(function(snapshot) {
       this.setState({nutrientDays: snapshot.val().nutrientDays,
         waterLevel: snapshot.val().waterLevel});
       console.log(snapshot.val().nutrientDays + "toasty")
