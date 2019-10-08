@@ -21,3 +21,4 @@ More Firebase Resources: (saved by Andreas)
  - https://firebase.googleblog.com/2014/04/best-practices-arrays-in-firebase.html
  - https://facebook.github.io/react-native/docs/props
  - https://firebase.google.com/docs/database/unity/retrieve-data
+ - https://firebase.google.com/docs/auth/web/manage-users
