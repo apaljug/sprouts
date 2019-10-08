@@ -51,7 +51,7 @@ class PlantCircle extends React.Component {
     if (this.props.hasPlant) {
       this.props.navigation.navigate('InfoScreen')
     } else {
-      this.props.navigation.navigate('NewPlant')
+      this.props.navigation.navigate('NewPlant', {location: this.props.location})
     }
   }
 

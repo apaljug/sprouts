@@ -90,14 +90,14 @@ export default class Main extends React.Component {
                 My Planter
               </Text>
               <View style={styles.circleRow}>
-                <PlantCircle hasPlant={true} percent={0.8} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={1} hasPlant={true} percent={0.8} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={2} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={3} diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
               <View style={styles.circleRow}>
-                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={4} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={5} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={6} diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
             </View>
           </View>
