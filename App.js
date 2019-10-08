@@ -11,6 +11,8 @@ import Loading from 'screens/Loading'
 import SignUp from 'screens/SignUp'
 import Login from 'screens/Login'
 import Main from 'screens/Main'
+import DetailScreen from './screens/DetailScreen'
+import InfoScreen from './screens/InfoScreen'
 import Settings from 'screens/Settings'
 // create our app's navigation stack
 const AuthStack = createSwitchNavigator({
