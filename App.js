@@ -37,7 +37,6 @@ const MainStack = createStackNavigator({
     Main: {
       screen: Main,
     },
-
     InfoScreen: {
       screen: InfoScreen,
     },
@@ -49,6 +48,9 @@ const MainStack = createStackNavigator({
     },
     NewPlant: {
       screen: NewPlant,
+    },
+    DetailScreen: {
+      screen: DetailScreen,
     }
   },
   {

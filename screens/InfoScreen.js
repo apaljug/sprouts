@@ -89,7 +89,7 @@ class InfoScreen extends React.Component {
           <Text>{this.state.lastHarvest} days ago</Text>
 
           <Text>Tips</Text>
-          <TipCard/>
+          <TipCard navigation={this.props.navigation}/>
         </SafeAreaView>
       </Fragment>
     );
