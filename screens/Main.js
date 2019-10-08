@@ -7,7 +7,6 @@ import firebase from 'react-native-firebase'
 import { Icon } from 'react-native-elements';
 import { NavigationActions } from 'react-navigation'
 
-
 import PlantCircle from 'components/PlantCircle'
 import ProgressCircle from 'components/ProgressCircle'
 import GlobalStyle from 'style/GlobalStyle'
@@ -55,7 +54,9 @@ export default class Main extends React.Component {
     }.bind(this));
   }
 
+  navigateToDetails() {
 
+  }
 
   render() {
     const { currentUser } = this.state;
@@ -89,14 +90,14 @@ export default class Main extends React.Component {
                 My Planter
               </Text>
               <View style={styles.circleRow}>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
+                <PlantCircle hasPlant={true} percent={0.8} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
               <View style={styles.circleRow}>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
             </View>
           </View>
