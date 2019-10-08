@@ -22,6 +22,12 @@ export default class Main extends React.Component {
       currentUser: null,
       nutrientDays: 0,
       waterLevel: 0,
+      plant1: false,
+      plant2: false,
+      plant3: false,
+      plant4: false,
+      plant5: false,
+      plant6: false,
     };
   }
 
@@ -90,14 +96,14 @@ export default class Main extends React.Component {
                 My Planter
               </Text>
               <View style={styles.circleRow}>
-                <PlantCircle location={1} hasPlant={true} percent={0.8} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={2} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={3} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={1} hasPlant={this.state.plant1} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={2} hasPlant={this.state.plant2} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={3} hasPlant={this.state.plant3} diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
               <View style={styles.circleRow}>
-                <PlantCircle location={4} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={5} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={6} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={4} hasPlant={this.state.plant4} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={5} hasPlant={this.state.plant5} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={6} hasPlant={this.state.plant6} diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
             </View>
           </View>

@@ -10,7 +10,7 @@ class PlantCircle extends React.Component {
 
     this.state = {
       hasPlant: this.props.hasPlant,
-      percent: this.props.percent,
+      percent: 0,
     };
   }
 
