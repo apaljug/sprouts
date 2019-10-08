@@ -65,7 +65,9 @@ export default class Main extends React.Component {
     console.log(userId +"plantingid")
 
     firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
+      console.log(snapshot.val());
       for (let num in snapshot.val()) {
+        console.log(num)
         if (num == 1) {
           this.setState({plant1: true});
         } else if (num == 2) {
@@ -92,6 +94,8 @@ export default class Main extends React.Component {
 
     const DIAMETER = 75;
     const startValue = true;
+
+    console.log(this.state.plant1);
 
     return (
       <Fragment>

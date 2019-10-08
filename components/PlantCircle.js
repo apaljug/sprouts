@@ -9,7 +9,6 @@ class PlantCircle extends React.Component {
     this.displayInternals = this.displayInternals.bind(this);
 
     this.state = {
-      hasPlant: this.props.hasPlant,
       percent: 0,
     };
   }
@@ -25,7 +24,8 @@ class PlantCircle extends React.Component {
   };
 
   displayInternals() {
-    if (this.state.hasPlant) {
+    console.log(this.props.hasPlant)
+    if (this.props.hasPlant) {
       return  <TouchableOpacity
                 className="GeneralButton"
                 type="submit"
