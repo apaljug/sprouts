@@ -17,11 +17,13 @@ export default class Main extends React.Component {
     super(props);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.updateCircles = this.updateCircles.bind(this);
+    this.updateLight = this.updateLight.bind(this);
 
     this.state = {
       currentUser: null,
       nutrientDays: 0,
       waterLevel: 0,
+      lightOn: false,
       plant1: false,
       plant2: false,
       plant3: false,
@@ -38,6 +40,7 @@ export default class Main extends React.Component {
       if (user) {
         this.updateCircles();
         this.updatePlants();
+        this.updateLight();
         /*const userId = firebase.auth().currentUser.uid;
         firebase.database().ref('users/' + userId).set({
           waterLevel: .25,
@@ -46,7 +49,7 @@ export default class Main extends React.Component {
       } else {
         this.props.navigation.navigate('Login')
       }
-    })
+    });
     const { currentUser } = firebase.auth();
     this.setState({ currentUser });
   }
@@ -82,6 +85,23 @@ export default class Main extends React.Component {
       }
     }.bind(this));
   }
+
+  updateLight() {
+    const userId = firebase.auth().currentUser.uid;
+
+    firebase.database().ref('/users/' + userId + "/planter").once('value').then(function(snapshot) {
+      this.setState({
+        lightOn: snapshot.val().lightOn
+      });
+    }.bind(this));
+  }
+
+  toggleSwitch = (value) => {
+    this.setState({lightOn: value});
+    const { currentUser } = firebase.auth();
+    const userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('users/'+ userId +'/planter').update({lightOn: value});
+  };
 
   render() {
     const { currentUser } = this.state;
@@ -138,7 +158,7 @@ export default class Main extends React.Component {
                 </Text>
               </View>
               <View style={{marginLeft: 'auto', marginTop: 3}}>
-                <ToggleSwitch/>
+                <ToggleSwitch value={this.state.lightOn} toggleSwitch={this.toggleSwitch}/>
               </View>
             </View>
           </View>

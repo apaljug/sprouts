@@ -11,75 +11,38 @@ import { StyleSheet,
 import firebase from 'react-native-firebase'
 import GlobalStyle from '../style/GlobalStyle'
 export default class FirstTime extends React.Component {
+  constructor(props) {
+    super(props);
+      this.componentDidMount = this.componentDidMount.bind(this);
+      this.state = {currentUser: null,
+                  planterName: '',
+      };
+    }
 
+    static navigationOptions = { header: null };
+    componentDidMount() {
+      const { currentUser } = firebase.auth();
+      this.setState({ currentUser });
+    }
 
+    handleSubmit = async () => {
+      const { currentUser } = firebase.auth();
+      const userId = firebase.auth().currentUser.uid;
 
-      constructor(props) {
-             super(props);
-
-             this.componentDidMount = this.componentDidMount.bind(this);
-
-             this.state = {currentUser: null,
-                      planterName: '',
-              };
-           }
-
-           static navigationOptions = { header: null };
-           componentDidMount() {
-             const { currentUser } = firebase.auth()
-             this.setState({ currentUser });
-
-
+      const userRef = firebase.database().ref('users/'+ userId);
+      const planter =
+      { planter:
+        {
+          planterName: this.state.planterName,
+          waterLevel: 100,
+          nutrientDays: `15`,
+          lightOn: false
         }
+      };
+      userRef.set(planter);
+      this.props.navigation.navigate('Main');
+    }
 
-/*
-const userId = firebase.auth().currentUser.uid;
-firebase.database().ref('users/' + userId).set({
-  waterLevel: .25,
-  nutrientDays: 30
-});*/
-
-            handleSubmit = async () => {
-
-                //e.preventDefault();
-                const { currentUser } = firebase.auth()
-                const userId = firebase.auth().currentUser.uid;
-
-                const userRef = firebase.database().ref('users/'+ userId);
-                const planter =
-                { planter:
-                  {
-                    planterName: this.state.planterName,
-                    waterLevel: 100,
-                    nutrientDays: `15`
-                  }
-                }
-
-                userRef.set(planter);
-
-                /*var plantKey = ""
-                userRef.push().then((snap) => {
-                   plantKey = snap.key
-                })
-
-                  console.log(plantKey);
-                const planter = {
-                  planterName: this.state.planterName,
-                  waterLevel: 100,
-                  nutrientDays: `15`,
-                  plantA:"",
-                	plantB:"",
-                	plantC:"",
-                	plantD:"",
-                	plantE:"",
-                	plantF:""
-                }
-                const plantRef = firebase.database().ref('planters/'+ plantKey);
-                plantRef.set(planter);*/
-
-                this.props.navigation.navigate('Main');
-
-              }
   render() {
     return (
       <View style={styles.container}>
