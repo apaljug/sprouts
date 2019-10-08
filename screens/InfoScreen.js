@@ -17,27 +17,53 @@ import TipCard from 'components/TipCard.js'
 const screenWidth = Dimensions.get('window').width
 
 class InfoScreen extends React.Component {
+
   static navigationOptions = {
     //   Add props
     title: 'Peppers',
   };
 
   static defaultProps = {
-    data: {
+    graph: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
       datasets: [{
-        data: [ 20, 45, 28, 80, 99, 43 ]
+        data: [ 20, 10, 28, 80, 99, 100 ]
       }]
+    },
+    harvestTime: 23,
+    height: 15,
+    lastHarvest: 17,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      graph: props.graph,
+      harvestTime: props.harvestTime,
+      height: props.height,
+      lastHarvest: props.lastHarvest,
+    };
+  }
+
+  componentDidMount() {
+    newGraph = {
+      data: [ 200, 10, 28, 80, 99, 100 ]
     }
+    this.setState({
+      graph: {
+        datasets: [newGraph]
+      }
+    })
   }
 
   render() {
     return (
       <Fragment>
         <SafeAreaView>
-          <Text>Your Plant</Text>
+          <Text style={styles.header}>Your Plant</Text>
+          <Text style={styles.title}>Growth</Text>
           <LineChart          
-            data={this.props.data}
+            data={this.state.graph}
             width={screenWidth}
             height={220}
             withDots={false}
@@ -56,11 +82,11 @@ class InfoScreen extends React.Component {
           />
           <Text>Estimated Time to Harvest</Text>
           {/* TODO: Update to props */}
-          <Text>23 days</Text>
+          <Text>{this.state.harvestTime} days</Text>
           <Text>Current Height</Text>
-          <Text>15 in</Text>
+          <Text>{this.state.height} in</Text>
           <Text>Last Harvest</Text>
-          <Text>17 days ago</Text>
+          <Text>{this.state.lastHarvest} days ago</Text>
 
           <Text>Tips</Text>
           <TipCard/>
@@ -71,6 +97,18 @@ class InfoScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#707070', // TODO: This needs to be a variable
+    margin: 10,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#707070',
+    margin: 10,
+  },
   image: {
     resizeMode: 'contain',
     height: 200,
