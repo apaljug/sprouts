@@ -29,6 +29,14 @@ class DetailScreen extends React.Component {
     body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      entries: props.entries,
+      title: props.title,
+      body: props.body,
+    }
+  }
   _renderItem ({item, index}) {
     return (
         <View style={styles.slide}>
@@ -38,23 +46,22 @@ class DetailScreen extends React.Component {
   }
 
   render() {
-    console.log(this.props.entries)
     return (
       <Fragment>
         <SafeAreaView>
           <ScrollView>
             <View style={styles.body}>
-              <Text style={[GlobalStyle.fontStyles, styles.header]}>{this.props.title}</Text>
+              <Text style={[GlobalStyle.fontStyles, styles.header]}>{this.state.title}</Text>
               <Carousel
                 ref={(c) => {this._carousel = c; }}
-                data={this.props.entries}
+                data={this.state.entries}
                 renderItem={this._renderItem}
                 sliderWidth={screenWidth}
                 // TODO: Fix this jank shit
                 itemWidth={200}
               />
               <Text style={styles.sectionDescription}>
-                {this.props.body}
+                {this.state.body}
               </Text>
             </View>
           </ScrollView>
