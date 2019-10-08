@@ -31,13 +31,13 @@ const AuthStack = createSwitchNavigator({
   });
 
 const MainStack = createStackNavigator({
-  FirstTime: {
-    screen: FirstTime,
-  },
+
     Main: {
       screen: Main,
     },
-
+    FirstTime: {
+      screen: FirstTime,
+    },
     InfoScreen: {
       screen: InfoScreen,
     },
