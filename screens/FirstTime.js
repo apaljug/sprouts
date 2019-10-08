@@ -50,20 +50,33 @@ firebase.database().ref('users/' + userId).set({
                 { planter:
                   {
                     planterName: this.state.planterName,
-                    waterLevel: .75,
+                    waterLevel: 100,
                     nutrientDays: `15`
-                  },
-                  plants:
-                  {
-                    plantA:"",
-                  	plantB:"",
-                  	plantC:"",
-                  	plantD:"",
-                  	plantE:"",
-                  	plantF:""
                   }
-                };
+                }
+
                 userRef.set(planter);
+
+                /*var plantKey = ""
+                userRef.push().then((snap) => {
+                   plantKey = snap.key
+                })
+
+                  console.log(plantKey);
+                const planter = {
+                  planterName: this.state.planterName,
+                  waterLevel: 100,
+                  nutrientDays: `15`,
+                  plantA:"",
+                	plantB:"",
+                	plantC:"",
+                	plantD:"",
+                	plantE:"",
+                	plantF:""
+                }
+                const plantRef = firebase.database().ref('planters/'+ plantKey);
+                plantRef.set(planter);*/
+
                 this.props.navigation.navigate('Main');
 
               }

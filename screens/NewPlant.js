@@ -25,6 +25,7 @@ class NewPlant extends React.Component {
 
         this.state = { currentUser: null,
                        plantType: '',
+                       location: -1
 
                      }
 
@@ -32,6 +33,8 @@ class NewPlant extends React.Component {
       componentDidMount() {
            const { currentUser } = firebase.auth()
            this.setState({ currentUser });
+           const { navigation } = this.props;
+           this.setState({location: JSON.stringify(navigation.getParam('location','-1'))});
       }
 
       handleSubmit = async () => {
@@ -40,20 +43,22 @@ class NewPlant extends React.Component {
           const { currentUser } = firebase.auth()
           const userId = firebase.auth().currentUser.uid;
 
-          const userRef = firebase.database().ref('users/'+ userId+"/plants");
+          const userRef = firebase.database().ref('users/'+ userId+"/plants/"+
+            this.state.location);
           const addPlant =
           {
                   plantType: this.state.plantType,
-                  plantLocation: 0,
+                  plantLocation: this.state.location,
                   timeToHarvest: 30,
                   height: 0,
                   lastHarvest: 0
           };
 
-          userRef.push(addPlant);
+          userRef.set(addPlant);
           this.props.navigation.navigate('Main');
         }
   render() {
+    const { navigation } = this.props;
     return (
         <View style={styles.container}>
           <View style={{height: 90, marginBottom: '20%', marginTop: '-20%'}}>
@@ -74,6 +79,9 @@ class NewPlant extends React.Component {
             >
               <Text style={styles.signUpText}>
                 Create Plant.
+              </Text>
+              <Text>
+                {JSON.stringify(navigation.getParam('location', 'NO-LOCATION'))}
               </Text>
             </TouchableOpacity>
           </View>
