@@ -31,38 +31,6 @@ class InfoScreen extends React.Component {
     }
   }
 
-
-  // render() {
-  //   console.log(this.props.entries)
-  //   return (
-  //     <Fragment>
-  //       <SafeAreaView>
-  //         <ScrollView
-  //           contentInsetAdjustmentBehavior="automatic"
-  //           style={styles.scrollView}>
-  //           {global.HermesInternal == null ? null : (
-  //             <View style={styles.engine}>
-  //               <Text style={styles.footer}>Engine: Hermes</Text>
-  //             </View>
-  //           )}
-  //           <View style={styles.body}>
-  //             <Text style={styles.sectionTitle}>Title Goes Here</Text>
-  //             <Carousel
-  //               ref={(c) => {this._carousel = c; }}
-  //               data={this.props.entries}
-  //               renderItem={this._renderItem}
-  //               sliderWidth={250}
-  //               itemWidth={100}
-  //             />
-  //             <Text style={styles.sectionDescription}>
-  //               Body Goes Here
-  //             </Text>
-  //           </View>
-  //         </ScrollView>
-  //       </SafeAreaView>
-  //     </Fragment>
-  //   );
-  // }
   render() {
     return (
       <Fragment>
@@ -72,16 +40,19 @@ class InfoScreen extends React.Component {
             data={this.props.data}
             width={screenWidth}
             height={220}
+            withDots={false}
             chartConfig={{
-              backgroundColor: '#e26a00',
-              backgroundGradientFrom: '#fb8c00',
-              backgroundGradientTo: '#ffa726',
+              backgroundGradientFrom: '#ffffff',
+              backgroundGradientFromOpacity: '1',
+              backgroundGradientTo: '#ffffff',
+              backgroundGradientToOpacity: '1',
               decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              color: (opacity = 1) => `rgba(10, 10, 10, ${opacity})`, // Gray until I can figure out how to differiate label color from line color
               style: {
                 borderRadius: 16
               }
             }}
+            bezier
           />
           <Text>Estimated Time to Harvest</Text>
           {/* TODO: Update to props */}

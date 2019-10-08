@@ -28,6 +28,9 @@ const AuthStack = createSwitchNavigator({
   });
 
 const MainStack = createStackNavigator({
+    InfoScreen: {
+      screen: InfoScreen,
+    },
     Main: {
       screen: Main,
     },
@@ -57,7 +60,7 @@ const RootStack = createSwitchNavigator(  {
     },
   },
   {
-    initialRouteName: 'Loading'
+    initialRouteName: 'Main'
   });
 
 const AppContainer = createAppContainer(RootStack);
