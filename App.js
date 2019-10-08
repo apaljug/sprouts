@@ -15,6 +15,7 @@ import DetailScreen from 'screens/DetailScreen'
 import InfoScreen from 'screens/InfoScreen'
 import Settings from 'screens/Settings'
 import FirstTime from 'screens/FirstTime'
+import NewPlant from 'screens/NewPlant'
 
 // create our app's navigation stack
 const AuthStack = createSwitchNavigator({
