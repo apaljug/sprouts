@@ -50,7 +50,7 @@ firebase.database().ref('users/' + userId).set({
                 { planter:
                   {
                     planterName: this.state.planterName,
-                    waterLevel: 100,
+                    waterLevel: .75,
                     nutrientDays: `15`
                   },
                   plants:
