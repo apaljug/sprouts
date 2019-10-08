@@ -11,9 +11,12 @@ import Loading from 'screens/Loading'
 import SignUp from 'screens/SignUp'
 import Login from 'screens/Login'
 import Main from 'screens/Main'
-import DetailScreen from './screens/DetailScreen'
-import InfoScreen from './screens/InfoScreen'
+import DetailScreen from 'screens/DetailScreen'
+import InfoScreen from 'screens/InfoScreen'
 import Settings from 'screens/Settings'
+import FirstTime from 'screens/FirstTime'
+import NewPlant from 'screens/NewPlant'
+
 // create our app's navigation stack
 const AuthStack = createSwitchNavigator({
     Loading: {
@@ -28,15 +31,25 @@ const AuthStack = createSwitchNavigator({
   });
 
 const MainStack = createStackNavigator({
-    InfoScreen: {
-      screen: InfoScreen,
-    },
+  FirstTime: {
+    screen: FirstTime,
+  },
     Main: {
       screen: Main,
+    },
+
+    InfoScreen: {
+      screen: InfoScreen,
     },
     Settings: {
       screen: Settings,
     },
+    InfoScreen: {
+      screen: InfoScreen,
+    },
+    NewPlant: {
+      screen: NewPlant,
+    }
   },
   {
     defaultNavigationOptions: {

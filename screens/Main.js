@@ -7,7 +7,6 @@ import firebase from 'react-native-firebase'
 import { Icon } from 'react-native-elements';
 import { NavigationActions } from 'react-navigation'
 
-
 import PlantCircle from 'components/PlantCircle'
 import ProgressCircle from 'components/ProgressCircle'
 import GlobalStyle from 'style/GlobalStyle'
@@ -16,9 +15,8 @@ import ToggleSwitch from 'components/ToggleSwitch'
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
-
-    this.updateCircles = this.updateCircles.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateCircles = this.updateCircles.bind(this);
 
     this.state = {
       currentUser: null,
@@ -28,28 +26,37 @@ export default class Main extends React.Component {
   }
 
   static navigationOptions = { header: null };
-
   componentDidMount() {
-    const { currentUser } = firebase.auth();
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.updateCircles();
+        /*const userId = firebase.auth().currentUser.uid;
+        firebase.database().ref('users/' + userId).set({
+          waterLevel: .25,
+          nutrientDays: 30
+        });*/
+      } else {
+        this.props.navigation.navigate('Login')
+      }
+    })
+    const { currentUser } = firebase.auth()
     this.setState({ currentUser });
-    this.updateCircles();
-    /*const userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('users/' + userId).set({
-      waterLevel: 1,
-      nutrientDays: 30
-    });*/
-  }
 
+  }
   updateCircles() {
     const userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    console.log(userId +"id")
+
+    firebase.database().ref('/users/' + userId +"/planter").once('value').then(function(snapshot) {
       this.setState({nutrientDays: snapshot.val().nutrientDays,
         waterLevel: snapshot.val().waterLevel});
-      console.log(snapshot.val().nutrientDays)
+      console.log(snapshot.val().nutrientDays + "toasty")
     }.bind(this));
   }
 
+  navigateToDetails() {
 
+  }
 
   render() {
     const { currentUser } = this.state;
@@ -83,14 +90,14 @@ export default class Main extends React.Component {
                 My Planter
               </Text>
               <View style={styles.circleRow}>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
+                <PlantCircle hasPlant={true} percent={0.8} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
               <View style={styles.circleRow}>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
-                <PlantCircle diameter={DIAMETER}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
             </View>
           </View>
