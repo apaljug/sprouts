@@ -1,22 +1,22 @@
 import React from 'react'
 
-import { 
+import {
   View,
   Text,
   Image,
   Button
  } from 'react-native';
 class TipCard extends React.Component {
-  
+
   constructor(props) {
     super(props);
 
-    console.log("This1", this)
+    //console.log("This1", this)
 
   }
 
   onPress() {
-    console.log("This2", this)
+    //console.log("This2", this)
 
     this.props.navigation.navigate('DetailScreen')
   }

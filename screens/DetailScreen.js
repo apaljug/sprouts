@@ -12,6 +12,7 @@ import {
 import PropTypes from 'prop-types';
 import Carousel from 'react-native-snap-carousel'
 import GlobalStyle from '../style/GlobalStyle';
+import firebase from "react-native-firebase";
 
 const screenWidth = Dimensions.get('window').width
 
@@ -31,12 +32,14 @@ class DetailScreen extends React.Component {
 
   constructor(props) {
     super(props)
+
     this.state = {
       entries: props.entries,
       title: props.title,
       body: props.body,
     }
   }
+
   _renderItem ({item, index}) {
     return (
         <View style={styles.slide}>

@@ -24,7 +24,6 @@ class PlantCircle extends React.Component {
   };
 
   displayInternals() {
-    console.log(this.props.hasPlant)
     if (this.props.hasPlant) {
       return  <TouchableOpacity
                 className="GeneralButton"
@@ -49,7 +48,7 @@ class PlantCircle extends React.Component {
 
   selectPath() {
     if (this.props.hasPlant) {
-      this.props.navigation.navigate('InfoScreen')
+      this.props.navigation.navigate('InfoScreen', {location: this.props.location})
     } else {
       this.props.navigation.navigate('NewPlant', {location: this.props.location})
     }

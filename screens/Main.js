@@ -32,6 +32,7 @@ export default class Main extends React.Component {
   }
 
   static navigationOptions = { header: null };
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -46,10 +47,10 @@ export default class Main extends React.Component {
         this.props.navigation.navigate('Login')
       }
     })
-    const { currentUser } = firebase.auth()
+    const { currentUser } = firebase.auth();
     this.setState({ currentUser });
-
   }
+
   updateCircles() {
     const userId = firebase.auth().currentUser.uid;
     //console.log(userId +"id")
@@ -62,12 +63,9 @@ export default class Main extends React.Component {
 
   updatePlants() {
     const userId = firebase.auth().currentUser.uid;
-    console.log(userId +"plantingid")
 
     firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
-      console.log(snapshot.val());
       for (let num in snapshot.val()) {
-        console.log(num)
         if (num == 1) {
           this.setState({plant1: true});
         } else if (num == 2) {
@@ -85,17 +83,11 @@ export default class Main extends React.Component {
     }.bind(this));
   }
 
-  navigateToDetails() {
-
-  }
-
   render() {
     const { currentUser } = this.state;
 
     const DIAMETER = 75;
     const startValue = true;
-
-    console.log(this.state.plant1);
 
     return (
       <Fragment>

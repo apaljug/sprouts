@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { LineChart } from 'react-native-chart-kit';
 import { Carousel } from 'react-native-snap-carousel';
 import TipCard from 'components/TipCard.js'
+import firebase from "react-native-firebase";
 
 const screenWidth = Dimensions.get('window').width
 
@@ -20,7 +21,7 @@ class InfoScreen extends React.Component {
 
   static navigationOptions = {
     //   Add props
-    title: 'Peppers',
+    title: 'Plant',
   };
 
   static defaultProps = {
@@ -33,27 +34,46 @@ class InfoScreen extends React.Component {
     harvestTime: 23,
     height: 15,
     lastHarvest: 17,
+    plantType: 'unknown',
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      graph: props.graph,
-      harvestTime: props.harvestTime,
-      height: props.height,
-      lastHarvest: props.lastHarvest,
+      graph: this.props.graph,
+      harvestTime: this.props.harvestTime,
+      height: this.props.height,
+      lastHarvest: this.props.lastHarvest,
+      plantType: this.props.plantType,
     };
   }
 
   componentDidMount() {
+    this.updateLabels();
     newGraph = {
       data: [ 200, 10, 28, 80, 99, 100 ]
-    }
+    };
     this.setState({
       graph: {
         datasets: [newGraph]
       }
-    })
+    });
+  }
+
+  updateLabels() {
+    const { navigation } = this.props;
+    const userId = firebase.auth().currentUser.uid;
+    const plantNum = JSON.stringify(navigation.getParam('location', 'NO-LOCATION'));
+    firebase.database().ref('/users/' + userId + '/plants/' + plantNum).once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+      this.setState({
+        harvestTime: snapshot.val().timeToHarvest,
+        height: snapshot.val().height,
+        lastHarvest: snapshot.val().lastHarvest,
+        plantType: snapshot.val().plantType,
+      });
+
+    }.bind(this));
   }
 
   render() {
@@ -62,7 +82,7 @@ class InfoScreen extends React.Component {
         <SafeAreaView>
           <Text style={styles.header}>Your Plant</Text>
           <Text style={styles.title}>Growth</Text>
-          <LineChart          
+          <LineChart
             data={this.state.graph}
             width={screenWidth}
             height={220}
@@ -81,7 +101,6 @@ class InfoScreen extends React.Component {
             bezier
           />
           <Text>Estimated Time to Harvest</Text>
-          {/* TODO: Update to props */}
           <Text>{this.state.harvestTime} days</Text>
           <Text>Current Height</Text>
           <Text>{this.state.height} in</Text>

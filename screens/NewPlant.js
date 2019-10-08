@@ -12,87 +12,84 @@ import {
 import PropTypes from 'prop-types';
 import firebase from 'react-native-firebase'
 import GlobalStyle from 'style/GlobalStyle'
-class NewPlant extends React.Component {
-      static navigationOptions = {
-        //   Add props
-        title: 'New Plant',
-      };
 
-    constructor(props) {
-               super(props);
+export default class NewPlant extends React.Component {
+  static navigationOptions = {
+    //   Add props
+    title: 'New Plant',
+  };
 
-               this.componentDidMount = this.componentDidMount.bind(this);
+  constructor(props) {
+    super(props);
 
-        this.state = { currentUser: null,
-                       plantType: '',
-                       location: -1
+    this.componentDidMount = this.componentDidMount.bind(this);
 
-                     }
+    this.state = {
+      currentUser: null,
+      plantType: '',
+      location: -1
+    }
+  };
 
-      };
-      componentDidMount() {
-           const { currentUser } = firebase.auth()
-           this.setState({ currentUser });
-           const { navigation } = this.props;
-           this.setState({location: JSON.stringify(navigation.getParam('location','-1'))});
-      }
+  componentDidMount() {
+       const { currentUser } = firebase.auth()
+       this.setState({ currentUser });
+       const { navigation } = this.props;
+       this.setState({location: JSON.stringify(navigation.getParam('location','-1'))});
+  }
 
-      handleSubmit = async () => {
+  handleSubmit = async () => {
+    //e.preventDefault();
+    const { currentUser } = firebase.auth()
+    const userId = firebase.auth().currentUser.uid;
 
-          //e.preventDefault();
-          const { currentUser } = firebase.auth()
-          const userId = firebase.auth().currentUser.uid;
+    const userRef = firebase.database().ref('users/'+ userId+"/plants/"+
+      this.state.location);
+    const addPlant =
+    {
+            plantType: this.state.plantType,
+            plantLocation: this.state.location,
+            timeToHarvest: 30,
+            height: 0,
+            lastHarvest: 0
+    };
 
-          const userRef = firebase.database().ref('users/'+ userId+"/plants/"+
-            this.state.location);
-          const addPlant =
-          {
-                  plantType: this.state.plantType,
-                  plantLocation: this.state.location,
-                  timeToHarvest: 30,
-                  height: 0,
-                  lastHarvest: 0
-          };
+    userRef.set(addPlant);
+    this.props.navigation.navigate('Main');
+  }
 
-          userRef.set(addPlant);
-          this.props.navigation.navigate('Main');
-        }
   render() {
     const { navigation } = this.props;
     return (
-        <View style={styles.container}>
-          <View style={{height: 90, marginBottom: '20%', marginTop: '-20%'}}>
-            <Image source={require('../assets/sproutLogo.png')}
-                   style={[{flex: 1, aspectRatio: 2, resizeMode: 'contain'}, GlobalStyle.shadow]}/>
-          </View>
-          <TextInput
-            placeholder="Plant Type"
-            autoCapitalize="words"
-            style={styles.textInput}
-            onChangeText={type => this.setState({plantType: type})}
-            value={this.state.name}
-          />
-            <TouchableOpacity
-              type="submit"
-              onPress={this.handleSubmit}
-              style={[styles.signUpButton, GlobalStyle.shadow]}
-            >
-              <Text style={styles.signUpText}>
-                Create Plant.
-              </Text>
-              <Text>
-                {JSON.stringify(navigation.getParam('location', 'NO-LOCATION'))}
-              </Text>
-            </TouchableOpacity>
-          </View>
+      <View style={styles.container}>
+        <View style={{height: 90, marginBottom: '20%', marginTop: '-20%'}}>
+          <Image source={require('../assets/sproutLogo.png')}
+                 style={[{flex: 1, aspectRatio: 2, resizeMode: 'contain'}, GlobalStyle.shadow]}/>
+        </View>
+        <TextInput
+          placeholder="Plant Type"
+          autoCapitalize="words"
+          style={styles.textInput}
+          onChangeText={type => this.setState({plantType: type})}
+          value={this.state.name}
+        />
+          <TouchableOpacity
+            type="submit"
+            onPress={this.handleSubmit}
+            style={[styles.signUpButton, GlobalStyle.shadow]}
+          >
+            <Text style={styles.signUpText}>
+              Create Plant.
+            </Text>
+            <Text>
+              {JSON.stringify(navigation.getParam('location', 'NO-LOCATION'))}
+            </Text>
+          </TouchableOpacity>
+        </View>
 
     );
   }
 }
-
-export default NewPlant;
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -120,11 +117,3 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
 });
-
-
-/*
-const userId = firebase.auth().currentUser.uid;
-firebase.database().ref('users/' + userId).set({
-  waterLevel: .25,
-  nutrientDays: 30
-});*/
