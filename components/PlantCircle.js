@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     margin: 11,
   },
   plantText: {
-    fontSize: 10,
+    fontSize: 20,
     position: 'absolute',
   },
   circleFill: {
