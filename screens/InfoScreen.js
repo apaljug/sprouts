@@ -14,6 +14,7 @@ import { LineChart } from 'react-native-chart-kit';
 import { Carousel } from 'react-native-snap-carousel';
 import TipCard from 'components/TipCard.js'
 import GlobalStyle from 'style/GlobalStyle';
+import firebase from "react-native-firebase";
 
 const screenWidth = Dimensions.get('window').width
 
@@ -21,7 +22,7 @@ class InfoScreen extends React.Component {
 
   static navigationOptions = {
     //   Add props
-    title: 'Peppers',
+    title: 'Plant',
   };
 
   static defaultProps = {
@@ -34,28 +35,46 @@ class InfoScreen extends React.Component {
     harvestTime: 23,
     height: 15,
     lastHarvest: 17,
+    plantType: 'unknown',
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      graph: props.graph,
-      harvestTime: props.harvestTime,
-      height: props.height,
-      lastHarvest: props.lastHarvest,
+      graph: this.props.graph,
+      harvestTime: this.props.harvestTime,
+      height: this.props.height,
+      lastHarvest: this.props.lastHarvest,
+      plantType: this.props.plantType,
     };
   }
 
   componentDidMount() {
+    this.updateLabels();
     newGraph = {
       data: [ 200, 10, 28, 80, 99, 100 ]
-    }
+    };
     this.setState({
       graph: {
         labels: this.state.graph.labels,
         datasets: [newGraph]
       }
-    })
+    });
+  }
+
+  updateLabels() {
+    const { navigation } = this.props;
+    const userId = firebase.auth().currentUser.uid;
+    const plantNum = JSON.stringify(navigation.getParam('location', 'NO-LOCATION'));
+    firebase.database().ref('/users/' + userId + '/plants/' + plantNum).once('value').then(function(snapshot) {
+      this.setState({
+        harvestTime: snapshot.val().timeToHarvest,
+        height: snapshot.val().height,
+        lastHarvest: snapshot.val().lastHarvest,
+        plantType: snapshot.val().plantType,
+      });
+
+    }.bind(this));
   }
 
   render() {

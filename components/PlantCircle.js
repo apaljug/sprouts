@@ -9,8 +9,7 @@ class PlantCircle extends React.Component {
     this.displayInternals = this.displayInternals.bind(this);
 
     this.state = {
-      hasPlant: this.props.hasPlant,
-      percent: this.props.percent,
+      percent: 0,
     };
   }
 
@@ -25,7 +24,7 @@ class PlantCircle extends React.Component {
   };
 
   displayInternals() {
-    if (this.state.hasPlant) {
+    if (this.props.hasPlant) {
       return  <TouchableOpacity
                 className="GeneralButton"
                 type="submit"
@@ -49,9 +48,9 @@ class PlantCircle extends React.Component {
 
   selectPath() {
     if (this.props.hasPlant) {
-      this.props.navigation.navigate('InfoScreen')
+      this.props.navigation.navigate('InfoScreen', {location: this.props.location})
     } else {
-      this.props.navigation.navigate('NewPlant')
+      this.props.navigation.navigate('NewPlant', {location: this.props.location})
     }
   }
 

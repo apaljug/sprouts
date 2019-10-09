@@ -35,14 +35,14 @@ const MainStack = createStackNavigator({
     Main: {
       screen: Main,
     },
+    FirstTime:{
+      screen: FirstTime
+    },
     InfoScreen: {
       screen: InfoScreen,
     },
     Settings: {
       screen: Settings,
-    },
-    InfoScreen: {
-      screen: InfoScreen,
     },
     NewPlant: {
       screen: NewPlant,

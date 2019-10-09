@@ -3,23 +3,17 @@ import { View, Switch, StyleSheet } from 'react-native'
 
 class ToggleSwitch extends React.Component{
 
-  constructor() {
-    super();
-    this.state = {
-      value: false,
-    }
+  constructor(props) {
+    super(props);
   }
-
-  ToggleSwitch = (value) => {
-    this.setState({value: !this.state.value});
-  };
 
   render() {
     return (
       <Switch
         style = {styles.switch}
-        onValueChange = {this.toggleSwitch}
-        value = {this.state.value}/>
+        onValueChange = {this.props.toggleSwitch}
+        value = {this.props.value}
+      />
     );
   }
 }
@@ -29,7 +23,5 @@ const styles = StyleSheet.create ({
     borderRadius: 17,
   }
 });
-
-ToggleSwitch.defaultProps = {startValue: true};
 
 export default ToggleSwitch

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { 
+import {
   View,
   Text,
   Image,
@@ -13,7 +13,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 class TipCard extends React.Component {
-  
+
   constructor(props) {
     super(props);
   }
