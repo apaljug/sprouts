@@ -37,7 +37,14 @@ class DetailScreen extends React.Component {
       entries: props.entries,
       title: props.title,
       body: props.body,
+      loading: true,
     }
+  }
+  
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 100);
   }
 
   _renderItem ({item, index}) {
@@ -49,6 +56,10 @@ class DetailScreen extends React.Component {
   }
 
   render() {
+    if(this.state.loading) {
+      return null;
+    }
+
     return (
       <Fragment>
         <SafeAreaView>
