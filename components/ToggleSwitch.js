@@ -12,8 +12,6 @@ class ToggleSwitch extends React.Component{
 
   ToggleSwitch = (value) => {
     this.setState({value: !this.state.value});
-    console.log(value);
-    console.log(this.state.value);
   };
 
   render() {

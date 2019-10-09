@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { LineChart } from 'react-native-chart-kit';
 import { Carousel } from 'react-native-snap-carousel';
 import TipCard from 'components/TipCard.js'
+import GlobalStyle from 'style/GlobalStyle';
 
 const screenWidth = Dimensions.get('window').width
 
@@ -51,6 +52,7 @@ class InfoScreen extends React.Component {
     }
     this.setState({
       graph: {
+        labels: this.state.graph.labels,
         datasets: [newGraph]
       }
     })
@@ -60,36 +62,51 @@ class InfoScreen extends React.Component {
     return (
       <Fragment>
         <SafeAreaView>
-          <Text style={styles.header}>Your Plant</Text>
-          <Text style={styles.title}>Growth</Text>
-          <LineChart          
-            data={this.state.graph}
-            width={screenWidth}
-            height={220}
-            withDots={false}
-            chartConfig={{
-              backgroundGradientFrom: '#ffffff',
-              backgroundGradientFromOpacity: '1',
-              backgroundGradientTo: '#ffffff',
-              backgroundGradientToOpacity: '1',
-              decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(10, 10, 10, ${opacity})`, // Gray until I can figure out how to differiate label color from line color
-              style: {
-                borderRadius: 16
-              }
-            }}
-            bezier
-          />
-          <Text>Estimated Time to Harvest</Text>
-          {/* TODO: Update to props */}
-          <Text>{this.state.harvestTime} days</Text>
-          <Text>Current Height</Text>
-          <Text>{this.state.height} in</Text>
-          <Text>Last Harvest</Text>
-          <Text>{this.state.lastHarvest} days ago</Text>
+          <View style={styles.wrapper}>
+            <Text style={[styles.header, GlobalStyle.fontStyles]}>Your Plant</Text>
+            <Text style={[styles.title, GlobalStyle.fontStyles]}>Growth</Text>
 
-          <Text>Tips</Text>
-          <TipCard navigation={this.props.navigation}/>
+            <LineChart          
+              data={this.state.graph}
+              width={screenWidth - 50}
+              height={220}
+              withDots={false}
+              withInnerLines={false}
+              bezier
+              style={{borderRadius: 12}}
+              chartConfig={{
+                // backgroundGradientFrom: '#000000',
+                // backgroundGradientTo: '#000000',
+                backgroundGradientFrom: '#ffffff',
+                backgroundGradientFromOpacity: 1,
+                backgroundGradientTo: '#ffffff',
+                backgroundGradientToOpacity: 1,
+                decimalPlaces: 2, // optional, defaults to 2dp
+                color: (opacity = 1) => {
+                  return `rgba(75, 75, 75, 0.9)`
+                }, // Gray until I can figure out how to differiate label color from line color
+                style: {
+                  borderRadius: 16
+                }
+              }}
+            />
+
+            <View style={styles.stats}>
+              <View style={styles.labels}>
+                <Text style={[styles.label, GlobalStyle.fontStyles]}>Time to Harvest</Text>
+                <Text style={[styles.label, GlobalStyle.fontStyles]}>Current Height</Text>
+                <Text style={[styles.label, GlobalStyle.fontStyles]}>Last Harvest</Text>
+              </View>
+              <View style={styles.entries}>
+                <Text style={[styles.entry, GlobalStyle.fontStyles]}>{this.state.height} in</Text>
+                <Text style={[styles.entry, GlobalStyle.fontStyles]}>{this.state.harvestTime} days</Text>
+                <Text style={[styles.entry, GlobalStyle.fontStyles]}>{this.state.lastHarvest} days ago</Text>
+              </View>
+            </View>
+
+            <Text style={[styles.header, GlobalStyle.fontStyles]}>Tips</Text>
+            <TipCard navigation={this.props.navigation}/>
+          </View>
         </SafeAreaView>
       </Fragment>
     );
@@ -100,14 +117,36 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#707070', // TODO: This needs to be a variable
-    margin: 10,
+    marginTop: 10,
   },
   title: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#707070',
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 0,
+  },
+  label: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginEnd: 5,
+    marginBottom: 2,
+  },
+  labels: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  },
+  entry: {
+    marginStart: 5,
+    marginBottom: 2,
+    fontSize: 15,
+    flexDirection: 'column'
+  },
+  entries: {
+    // marginBottom: 5,
+  },
+  stats: {
+    alignSelf: 'center',
+    flexDirection: 'row',
   },
   image: {
     resizeMode: 'contain',
@@ -118,6 +157,9 @@ const styles = StyleSheet.create({
     // showsHorizontalScrollIndicator: false,
     maxHeight: 200,
   },
+  wrapper: {
+    marginHorizontal: 25,
+  }
 });
 
 export default InfoScreen;

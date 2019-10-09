@@ -39,9 +39,9 @@ class DetailScreen extends React.Component {
   }
   _renderItem ({item, index}) {
     return (
-        <View style={styles.slide}>
-            <Image source={item.image} style={styles.image}/>
-        </View>
+      <View style={styles.imageView}>
+        <Image source={item.image} style={styles.image}/>
+      </View>
     )
   }
 
@@ -52,15 +52,17 @@ class DetailScreen extends React.Component {
           <ScrollView>
             <View style={styles.body}>
               <Text style={[GlobalStyle.fontStyles, styles.header]}>{this.state.title}</Text>
-              <Carousel
-                ref={(c) => {this._carousel = c; }}
-                data={this.state.entries}
-                renderItem={this._renderItem}
-                sliderWidth={screenWidth}
-                // TODO: Fix this jank shit
-                itemWidth={200}
-              />
-              <Text style={styles.sectionDescription}>
+              <View style={styles.imageScrollView}>
+                <Carousel
+                  ref={(c) => {this._carousel = c; }}
+                  data={this.state.entries}
+                  renderItem={this._renderItem}
+                  sliderWidth={screenWidth}
+                  // TODO: Fix this jank shit (aka don't hardcode image size)
+                  itemWidth={200}
+                />
+              </View>
+              <Text style={[GlobalStyle.fontStyles, styles.sectionDescription]}>
                 {this.state.body}
               </Text>
             </View>
@@ -80,16 +82,17 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 22,
     fontWeight: 'bold',
-    margin: 10,
+    marginVertical: 10,
   },
   image: {
     resizeMode: 'contain',
-    height: 200,
   },
   imageScrollView: {
-    flexDirection: 'row',
-    // showsHorizontalScrollIndicator: false,
-    maxHeight: 200,
+    marginBottom: 10,
+    marginTop: 0,
+  },
+  body: {
+    marginHorizontal: 25,
   },
 });
 
