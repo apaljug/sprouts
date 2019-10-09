@@ -27,7 +27,7 @@ class InfoScreen extends React.Component {
 
   static defaultProps = {
     graph: {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
       datasets: [{
         data: [ 20, 10, 28, 80, 99, 100 ]
       }]
@@ -88,11 +88,12 @@ class InfoScreen extends React.Component {
             <LineChart          
               data={this.state.graph}
               width={screenWidth - 50}
-              height={220}
+              height={200}
               withDots={false}
               withInnerLines={false}
+              withOuterLines={false}
               bezier
-              style={{borderRadius: 12}}
+              style={{borderRadius: 12, marginBottom: 10}}
               chartConfig={{
                 // backgroundGradientFrom: '#000000',
                 // backgroundGradientTo: '#000000',
@@ -102,7 +103,16 @@ class InfoScreen extends React.Component {
                 backgroundGradientToOpacity: 1,
                 decimalPlaces: 2, // optional, defaults to 2dp
                 color: (opacity = 1) => {
-                  return `rgba(75, 75, 75, 0.9)`
+                  console.log(opacity)
+                  if (opacity == 0.2) {
+                    return `rgba(86, 206, 100, 1.0)`
+                  } else if (opacity == 0.5) {
+                    return `rgba(75, 75, 75, 1.0)`
+                  } else if (opacity == 1) {
+                    return `rgba(86, 206, 100, 1.0)`
+                  } else {
+                    return `rgba(0, 0, 0, 1.0)`
+                  }
                 }, // Gray until I can figure out how to differiate label color from line color
                 style: {
                   borderRadius: 16
