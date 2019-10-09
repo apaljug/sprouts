@@ -24,12 +24,7 @@ export default class Main extends React.Component {
       nutrientDays: 0,
       waterLevel: 0,
       lightOn: false,
-      plant1: false,
-      plant2: false,
-      plant3: false,
-      plant4: false,
-      plant5: false,
-      plant6: false,
+      plants: [false, false, false, false, false ,false],
     };
   }
 
@@ -67,20 +62,12 @@ export default class Main extends React.Component {
     const userId = firebase.auth().currentUser.uid;
 
     firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
+      let duplicate = this.state.plants;
       for (let num in snapshot.val()) {
-        if (num == 1) {
-          this.setState({plant1: true});
-        } else if (num == 2) {
-          this.setState({plant2: true});
-        } else if (num == 3) {
-          this.setState({plant3: true});
-        } else if (num == 4) {
-          this.setState({plant4: true});
-        } else if (num == 5) {
-          this.setState({plant5: true});
-        } else if (num == 6) {
-          this.setState({plant6: true});
+        if (num > 0) {
+          duplicate[num-1] = true
         }
+        this.setState({plants: duplicate});
       }
     }.bind(this));
   }
@@ -134,14 +121,14 @@ export default class Main extends React.Component {
                 My Planter
               </Text>
               <View style={styles.circleRow}>
-                <PlantCircle location={1} hasPlant={this.state.plant1} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={2} hasPlant={this.state.plant2} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={3} hasPlant={this.state.plant3} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={1} hasPlant={this.state.plants[0]} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={2} hasPlant={this.state.plants[1]} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={3} hasPlant={this.state.plants[2]} diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
               <View style={styles.circleRow}>
-                <PlantCircle location={4} hasPlant={this.state.plant4} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={5} hasPlant={this.state.plant5} diameter={DIAMETER} navigation={this.props.navigation}/>
-                <PlantCircle location={6} hasPlant={this.state.plant6} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={4} hasPlant={this.state.plants[3]} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={5} hasPlant={this.state.plants[4]} diameter={DIAMETER} navigation={this.props.navigation}/>
+                <PlantCircle location={6} hasPlant={this.state.plants[5]} diameter={DIAMETER} navigation={this.props.navigation}/>
               </View>
             </View>
           </View>
