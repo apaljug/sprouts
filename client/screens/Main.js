@@ -31,11 +31,20 @@ export default class Main extends React.Component {
   static navigationOptions = { header: null };
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (currentUser) {
+
+
+        return firebase.auth().currentUser.getIdToken()
+      .then(idToken => {
+        axios.defaults.headers.common['Authorization'] = idToken;
         this.updateCircles();
         this.updatePlants();
         this.updateLight();
+
+      }).catch();
+        /*const userId = firebase.auth().currentUser.uid;
+        console.log(uid);*/
         /*const userId = firebase.auth().currentUser.uid;
         firebase.database().ref('users/' + userId).set({
           waterLevel: .25,
