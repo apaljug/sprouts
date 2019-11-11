@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
 import GlobalStyle from 'style/GlobalStyle'
+import firebase from "react-native-firebase";
 
 class PlantCircle extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class PlantCircle extends React.Component {
     this.displayInternals = this.displayInternals.bind(this);
 
     this.state = {
+      plantType: 'Unknown',
       percent: 0,
     };
   }
@@ -23,8 +25,20 @@ class PlantCircle extends React.Component {
     }
   };
 
+  updateValues() {
+    console.log("mounted");
+    const userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + userId + "/plants/" + this.props.location).once('value').then(function(snapshot) {
+      this.setState({
+        plantType: snapshot.val().plantType,
+        percent: snapshot.val().timeToHarvest / (snapshot.val().timeToHarvest + snapshot.val().lastHarvest),
+      });
+    }.bind(this));
+  }
+
   displayInternals() {
     if (this.props.hasPlant) {
+      this.updateValues();
       return  <TouchableOpacity
                 className="GeneralButton"
                 type="submit"
@@ -32,7 +46,7 @@ class PlantCircle extends React.Component {
                 onPress={this.selectPath.bind(this)}
               >
                 <View style={[styles.circleFill, { height: (this.state.percent*100)+'%' }]} />
-                <Text style={[styles.plantText, GlobalStyle.fontStyles]}> plant </Text>
+                <Text style={[styles.plantText, GlobalStyle.fontStyles]}> {this.state.plantType} </Text>
               </TouchableOpacity>;
     } else {
       return  <TouchableOpacity
