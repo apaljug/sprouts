@@ -16,6 +16,7 @@ import InfoScreen from 'screens/InfoScreen'
 import Settings from 'screens/Settings'
 import FirstTime from 'screens/FirstTime'
 import NewPlant from 'screens/NewPlant'
+import QRScanner from './screens/QRScanner';
 
 // create our app's navigation stack
 const AuthStack = createSwitchNavigator({
@@ -70,6 +71,9 @@ const RootStack = createSwitchNavigator(  {
     },
     Main: {
       screen: MainStack,
+    },
+    QR: {
+      screen: QRScanner,
     },
   },
   {
