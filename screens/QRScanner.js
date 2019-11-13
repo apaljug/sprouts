@@ -12,9 +12,10 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class QRScanner extends Component {
   onSuccess = (e) => {
-    Linking
-      .openURL(e.data)
-      .catch(err => console.error('An error occured', err));
+    // Linking
+    //   .openURL(e.data)
+    //   .catch(err => console.error('An error occured', err));
+    this.props.navigation.navigate('Main');
   }
 
   render() {
@@ -26,12 +27,14 @@ class QRScanner extends Component {
         // flashMode={QRCodeScanner.Constants.FlashMode.torch}      
         topContent={
           <Text style={styles.centerText}>
-            Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
+            Scan the QR code located on the bottom of your pod
           </Text>
         }
         bottomContent={
           <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
+
+            {/* TODO: Change to "go back" */}
+            <Text style={styles.buttonText} onPress={this.onSuccess}>Skip</Text>
           </TouchableOpacity>
         }
       />

@@ -55,7 +55,7 @@ export default class NewPlant extends React.Component {
     };
 
     userRef.set(addPlant);
-    this.props.navigation.navigate('Main');
+    this.props.navigation.navigate('QR');
   }
 
   render() {

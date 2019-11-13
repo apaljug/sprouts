@@ -50,7 +50,10 @@ const MainStack = createStackNavigator({
     },
     DetailScreen: {
       screen: DetailScreen,
-    }
+    },
+    QR: {
+      screen: QRScanner,
+    },
   },
   {
     defaultNavigationOptions: {
@@ -71,9 +74,6 @@ const RootStack = createSwitchNavigator(  {
     },
     Main: {
       screen: MainStack,
-    },
-    QR: {
-      screen: QRScanner,
     },
   },
   {
