@@ -293,11 +293,11 @@ PODS:
     - Fabric
     - Firebase/Core
     - React
-  - RNGestureHandler (1.4.1):
+  - RNGestureHandler (1.5.0):
     - React
   - RNPermissions (2.0.3):
     - React
-  - RNSVG (9.11.1):
+  - RNSVG (9.13.3):
     - React
   - RNVectorIcons (6.6.0):
     - React
@@ -500,12 +500,12 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
   RNCAsyncStorage: 5ae4d57458804e99f73d427214442a6b10a53856
   RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
-  RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
+  RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
   RNPermissions: 332fd0d0c33ba71d83a22f584fce7b2270488ae0
-  RNSVG: be27aa7c58819f97399388ae53d7fa0572f32c7f
+  RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 
-PODFILE CHECKSUM: 180548b13a0a7341698f5ed1cb21baae8440cd0d
+PODFILE CHECKSUM: ade793e3683b9658ef839f0902f7e24286a13606
 
 COCOAPODS: 1.8.3

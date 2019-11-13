@@ -1,46 +1,46 @@
 # OSX
 #
-.DS_Store
+client/.DS_Store
 
 # Xcode
 #
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-project.xcworkspace
+client/build/
+client/*.pbxuser
+client/!default.pbxuser
+client/*.mode1v3
+client/!default.mode1v3
+client/*.mode2v3
+client/!default.mode2v3
+client/*.perspectivev3
+client/!default.perspectivev3
+client/xcuserdata
+client/*.xccheckout
+client/*.moved-aside
+client/DerivedData
+client/*.hmap
+client/*.ipa
+client/*.xcuserstate
+client/project.xcworkspace
 
 # Android/IntelliJ
 #
-build/
-.idea
-.gradle
-local.properties
-*.iml
+client/build/
+client/.idea
+client/.gradle
+client/local.properties
+client/*.iml
 
 # node.js
 #
-node_modules/
-npm-debug.log
-yarn-error.log
+client/node_modules/
+client/npm-debug.log
+client/yarn-error.log
 
 # BUCK
-buck-out/
-\.buckd/
-*.keystore
-!debug.keystore
+client/buck-out/
+client/\.buckd/
+client/*.keystore
+client/!debug.keystore
 
 # fastlane
 #
@@ -49,12 +49,12 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
+client/*/fastlane/report.xml
+client/*/fastlane/Preview.html
+client/*/fastlane/screenshots
 
 # Bundle artifact
-*.jsbundle
+client/*.jsbundle
 
 # CocoaPods
-/ios/Pods/
+client/ios/Pods/
