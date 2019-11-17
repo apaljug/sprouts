@@ -58,3 +58,6 @@ client/*.jsbundle
 
 # CocoaPods
 client/ios/Pods/
+
+# Server
+server/node_modules

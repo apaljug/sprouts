@@ -38,4 +38,26 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://general:sprout@cluster0-lljbw.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  // console.log(collection);
+  console.log("Error: ", err);
+  // assert.equal(null, err);
+  console.log("Connected successfully to server");
+  client.close();
+});
+
+// client.connect(function(err) {
+//   assert.equal(null, err);
+//   console.log("Connected successfully to server");
+
+//   const db = client.db("test");
+
+//   client.close();
+// });
+
 module.exports = app;
