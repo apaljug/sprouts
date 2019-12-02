@@ -3,7 +3,7 @@ import React from 'react'
 import {
   View,
   Text,
-  Image,
+  ImageBackground,
   Button,
   StyleSheet
  } from 'react-native';
@@ -12,10 +12,19 @@ import GlobalStyle from 'style/GlobalStyle';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-class TipCard extends React.Component {
+export default class TipCard extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state =  {
+      imageAddress: '../assets/sproutLogo.png',
+    }
+  }
+
+  componentDidMount() {
+    const backImage = this.props.file ? require('../assets/harvestLettuce.jpg') : require('../assets/sproutLogo.png');
+    this.setState({imageAddress: backImage});
   }
 
   onPress() {
@@ -24,45 +33,36 @@ class TipCard extends React.Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={this.onPress.bind(this)} style={[styles.card, GlobalStyle.shadow]}>
-        {/* TODO: Will change this to touchable opacity when I update styles   */}
-        <Image source={require('assets/sproutLogo.png')} style={styles.icon}/>
-        <View style={styles.labels}>
-          <Text style={[styles.title, GlobalStyle.fontStyles]}>Harvest</Text>
-          <Text style={[styles.subtitle, GlobalStyle.fontStyles]}>Learn how to harvest your plant</Text>
-        </View>
-        {/* <Image style={styles.arrow} source={require('assets/Arrow.png')}/> */}
-      </TouchableOpacity>
+      //<View style = {{width: '50%'}}>
+        <TouchableOpacity onPress={this.onPress.bind(this)} style={[styles.card, GlobalStyle.shadow]}>
+          <ImageBackground source={require('../assets/sproutLogo.png')} style={styles.imageWrapper}>
+            <View style={styles.labels}>
+              <Text style={[styles.title, GlobalStyle.fontStyles]}>{this.props.title}</Text>
+            </View>
+          </ImageBackground>
+        </TouchableOpacity>
+      //</View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  icon: {
-    width: 30, 
-    height: 30,
-    margin: 10,
+  imageWrapper: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
   card: {
-    margin: 10,
+    margin: 7.5,
     borderRadius: 10,
-    backgroundColor: '#ffffff',
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  labels: {
-    flexDirection: 'column',
-    margin: 5,
+    backgroundColor: 'white',
+    height: 100,
+    flexBasis: '50%',
   },
   title: {
     fontSize: 15,
+    margin: 20,
+    textAlignVertical: 'center',
+    textAlign: 'center',
   },
-  subtitle: {
-    fontSize: 10,
-  },
-  arrow: {
-    
-  }
-})
-
-export default TipCard
+});

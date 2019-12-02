@@ -42,7 +42,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Sprout needs your camera to scan the QR code</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

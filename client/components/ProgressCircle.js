@@ -5,7 +5,7 @@ import { View } from 'react-native'
 class ProgressCircle extends React.Component {
   render() {
     return (
-      <View style={{margin: 3.5}}>
+      <View>
         <AnimatedCircularProgress
           size={95}
           width={12}

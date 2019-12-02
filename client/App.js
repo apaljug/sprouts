@@ -4,19 +4,23 @@ import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-nativ
 import firebase from 'react-native-firebase';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-import { createSwitchNavigator } from 'react-navigation'
-import GlobalStyle from './style/GlobalStyle'
+import { createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import GlobalStyle from './style/GlobalStyle';
 // import the different screens
-import Loading from 'screens/Loading'
-import SignUp from 'screens/SignUp'
-import Login from 'screens/Login'
-import Main from 'screens/Main'
-import DetailScreen from 'screens/DetailScreen'
-import InfoScreen from 'screens/InfoScreen'
-import Settings from 'screens/Settings'
-import FirstTime from 'screens/FirstTime'
-import NewPlant from 'screens/NewPlant'
+import Loading from 'screens/Loading';
+import SignUp from 'screens/SignUp';
+import Login from 'screens/Login';
+import Main from 'screens/Main';
+import DetailScreen from 'screens/DetailScreen';
+import InfoScreen from 'screens/InfoScreen';
+import Settings from 'screens/Settings';
+import FirstTime from 'screens/FirstTime';
+import NewPlant from 'screens/NewPlant';
 import QRScanner from './screens/QRScanner';
+import MainPlants from './screens/MainPlants';
+import MainControls from './screens/MainControls';
 
 // create our app's navigation stack
 const AuthStack = createSwitchNavigator({
@@ -55,6 +59,7 @@ const MainStack = createStackNavigator({
       screen: QRScanner,
     },
   },
+
   {
     defaultNavigationOptions: {
       headerStyle: {
@@ -68,12 +73,38 @@ const MainStack = createStackNavigator({
     }
   });
 
+const TabStack = createBottomTabNavigator ({
+  Plants: {
+    screen: MainPlants,
+    navigationOptions:{
+      tabBarLabel:'Plants',
+      tabBarIcon:({tintColor})=>(
+        <Icon name="seedling" color={tintColor} size={25}/>
+      )
+    }
+  },
+  Controls: {
+    screen: MainControls,
+    navigationOptions:{
+      tabBarLabel:'Controls',
+      tabBarIcon:({tintColor})=>(
+        <Icon name="sliders-h" color={tintColor} size={25}/>
+      )
+    }
+  },
+},
+{
+  tabBarOptions: {
+    activeTintColor: '#56CE64',
+  }
+});
+
 const RootStack = createSwitchNavigator(  {
     Loading: {
       screen: AuthStack,
     },
     Main: {
-      screen: MainStack,
+      screen: TabStack,
     },
   },
   {

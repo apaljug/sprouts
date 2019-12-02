@@ -85,7 +85,7 @@ class InfoScreen extends React.Component {
             <Text style={[styles.header, GlobalStyle.fontStyles]}>Your Plant</Text>
             <Text style={[styles.title, GlobalStyle.fontStyles]}>Growth</Text>
 
-            <LineChart          
+            <LineChart
               data={this.state.graph}
               width={screenWidth - 50}
               height={200}
@@ -113,7 +113,7 @@ class InfoScreen extends React.Component {
                   } else {
                     return `rgba(0, 0, 0, 1.0)`
                   }
-                }, // Gray until I can figure out how to differiate label color from line color
+                }, // Gray until I can figure out how to differentiate label color from line color
                 style: {
                   borderRadius: 16
                 }
