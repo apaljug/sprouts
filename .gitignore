@@ -29,6 +29,11 @@ client/.idea
 client/.gradle
 client/local.properties
 client/*.iml
+.idea
+
+# ios
+client/ios/build/
+client/ios/Pods/
 
 # node.js
 #
@@ -55,6 +60,3 @@ client/*/fastlane/screenshots
 
 # Bundle artifact
 client/*.jsbundle
-
-# CocoaPods
-client/ios/Pods/
