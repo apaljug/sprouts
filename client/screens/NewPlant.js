@@ -17,6 +17,7 @@ export default class NewPlant extends React.Component {
   static navigationOptions = {
     //   Add props
     title: 'New Plant',
+    tabBarVisible: false,
   };
 
   constructor(props) {
