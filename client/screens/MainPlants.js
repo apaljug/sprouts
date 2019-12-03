@@ -104,7 +104,7 @@ export default class MainPlants extends React.Component {
             </ScrollView>
           </View>
           <View style = {{marginHorizontal: 25}}>
-            <Text style={[{marginBottom: 7.5, fontSize: 20, fontWeight: 'bold', marginTop: 30}, GlobalStyle.fontStyles]}>Tips</Text>
+            <Text style={[{marginBottom: 7.5, fontSize: 20, fontWeight: 'bold', marginTop: 30}, GlobalStyle.fontStyles]}></Text>
             <View style = {[{marginHorizontal: -7.5, backgroundColor: '#000000'}, styles.tipsContainer]}>
               <TipCard file = {'../assets/sproutLogo.png'} title = {"Plant Health"}/>
               <TipCard file = {'../assets/sproutLogo.png'} title = {"Harvesting"}/>
