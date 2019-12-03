@@ -114,7 +114,7 @@ export default class MainPlants extends React.Component {
 
 
             { this.state.plant.map((item, key)=> (
-            <PlantCard circleNumber={item.plantNumber}/>
+            <PlantCard number={item.plantNumber}/>
           ))}
 
             </ScrollView>
