@@ -28,7 +28,8 @@ export default class NewPlant extends React.Component {
     this.state = {
       currentUser: null,
       plantType: '',
-      location: -1
+      name: '',
+      number: 1
     }
   };
 
@@ -36,7 +37,19 @@ export default class NewPlant extends React.Component {
        const { currentUser } = firebase.auth()
        this.setState({ currentUser });
        const { navigation } = this.props;
-       this.setState({location: JSON.stringify(navigation.getParam('location','-1'))});
+
+       const userId = firebase.auth().currentUser.uid;
+
+      firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
+        /*.forEach((child) => {
+          if (child.plantNumber >= this.state.number) {
+            var num = child.plantNumber + 1;
+            this.setState({number: num });
+          }
+        });
+        */
+      }.bind(this));
+
   }
 
   handleSubmit = async () => {
@@ -48,15 +61,15 @@ export default class NewPlant extends React.Component {
       this.state.location);
     const addPlant =
     {
+            plantName: this.state.name,
             plantType: this.state.plantType,
-            plantLocation: this.state.location,
-            timeToHarvest: 30,
-            height: 0,
-            lastHarvest: 0
+            plantDay: 0,
+            plantNumber: this.state.number,
+            harvest: 0,
+            harvestTotal: 30,
     };
-
     userRef.set(addPlant);
-    this.props.navigation.navigate('QR');
+    this.props.navigation.navigate('Plants');
   }
 
   render() {
@@ -67,13 +80,24 @@ export default class NewPlant extends React.Component {
           <Image source={require('../assets/sproutLogo.png')}
                  style={[{flex: 1, aspectRatio: 2, resizeMode: 'contain'}, GlobalStyle.shadow]}/>
         </View>
+        <Text>{this.state.num}</Text>
         <TextInput
           placeholder="Plant Type"
           autoCapitalize="words"
           style={styles.textInput}
           onChangeText={type => this.setState({plantType: type})}
+          value={this.state.plantType}
+        />
+
+        <TextInput
+          placeholder="Plant Name"
+          autoCapitalize="words"
+          style={styles.textInput}
+          onChangeText={nm => this.setState({name: nm})}
           value={this.state.name}
         />
+
+
           <TouchableOpacity
             type="submit"
             onPress={this.handleSubmit}
@@ -82,9 +106,8 @@ export default class NewPlant extends React.Component {
             <Text style={styles.signUpText}>
               Create Plant.
             </Text>
-            <Text>
-              {JSON.stringify(navigation.getParam('location', 'NO-LOCATION'))}
-            </Text>
+
+
           </TouchableOpacity>
         </View>
 

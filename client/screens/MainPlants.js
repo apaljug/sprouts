@@ -53,19 +53,8 @@ export default class MainPlants extends React.Component {
 
     firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
       var plants = [];
-      var test = [{ name: "Lettuce",
-      type: "Red Lettuce",
-      day: 10,
-      number: 1,
-      harvest: 10,
-      harvestTotal: 30,
-    }, { name: "Lettuce",
-    type: "Red Lettuce",
-    day: 10,
-    number: 1,
-    harvest: 10,
-    harvestTotal: 30,}]
-      test.forEach((child) => {
+
+      snapshot.forEach((child) => {
          plants.push({
             plantName: child.name,
             plantType: child.type,
@@ -124,9 +113,10 @@ export default class MainPlants extends React.Component {
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
 
 
-            {this.state.plant.map(item => (
+            { this.state.plant.map((item, key)=> (
             <PlantCard circleNumber={item.plantNumber}/>
-            ))}
+          ))}
+
             </ScrollView>
           </View>
           <View style = {{marginHorizontal: 25}}>
