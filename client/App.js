@@ -30,6 +30,9 @@ const AuthStack = createSwitchNavigator({
     SignUp: {
       screen: SignUp
     },
+    FirstTime:{
+      screen: FirstTime
+    },
     Login: {
       screen: Login
     },
