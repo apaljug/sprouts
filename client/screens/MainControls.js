@@ -10,6 +10,7 @@ import { NavigationActions } from 'react-navigation'
 import ProgressCircle from 'components/ProgressCircle'
 import GlobalStyle from 'style/GlobalStyle'
 import ToggleSwitch from 'components/ToggleSwitch'
+import WaterLevel from 'components/WaterLevel';
 
 export default class MainControls extends React.Component {
   constructor(props) {
@@ -123,9 +124,8 @@ export default class MainControls extends React.Component {
               <Text style={[GlobalStyle.fontStyles, styles.modTitle]}>
                 Water
               </Text>
-              <View style={{justifyContent: 'center'}}>
-                <View style={styles.centerText}>
-                </View>
+              <View style = {{justifyContent: 'center', alignItems: 'center', marginTop: 13, marginBottom: 5}}>
+                <WaterLevel/>
               </View>
             </View>
 
