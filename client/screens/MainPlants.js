@@ -2,7 +2,7 @@
 import React, {Fragment} from 'react'
 import {   SafeAreaView, ScrollView,
   StyleSheet, Platform,   StatusBar,
-  Switch, Text, View , Button, TouchableOpacity} from 'react-native'
+  Switch, Text, View , Button, TouchableOpacity, Animated} from 'react-native'
 import firebase from 'react-native-firebase'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
@@ -110,6 +110,21 @@ export default class MainPlants extends React.Component {
                 <View style = {styles.summaryCircle}>
                   <Text style = {styles.summaryCircleText}>{this.state.curPlantNumber}</Text>
                 </View>
+                <Text style={{marginTop: 'auto', fontWeight: 'bold', fontSize: 20, color: 'white', marginBottom: 5}}>
+                  Harvest
+                </Text>
+                <View style={styles.progressBar}>
+                  <View style={styles.circle}/>
+                  <Animated.View style={[{ backgroundColor: "#FFFFFF", width: 100 * this.state.curPlantDay / 30 + '%', height: '100%'}]}/>
+                  <View style={{height: 10, width: 3, borderRadius: 10, backgroundColor: "white", overflow: 'visible'}}> 
+                    <Text style={{position:"absolute", top: -23, left: -10, width: 25, paddingVertical: 1, textAlign: 'center', backgroundColor: 'white', borderRadius: 5, fontWeight: 'bold', color: '#94F88C'}}>{this.state.curPlantDay}</Text>
+                  </View>
+                  <View style={[styles.circle, {marginLeft: 'auto'}]}/>
+                </View>
+                <View style={{flexDirection: 'row', marginTop: 7}}>
+                  <Text style={{color: 'white'}}>Last - 0</Text>
+                  <Text style={{marginLeft: 'auto', color: 'white'}}>Next - 30</Text>
+                </View>
               </LinearGradient>
             </View>
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -144,6 +159,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     margin: 10,
+  },
+  circle: {
+    backgroundColor: '#56CE64',
+    borderColor: 'white',
+    borderWidth: 2,
+    height: 15,
+    width: 15,
+    borderRadius: 15/2,
   },
   modWrapper: {
     flexDirection: 'column',
@@ -245,5 +268,17 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  progressBar: {
+    flexDirection: 'row',
+    // alignContent: 'center',
+    // marginTop: 'auto',
+    marginTop: 10,
+    alignItems: 'center',
+    height: 3,
+    width: '100%',
+    backgroundColor: '#C6C6C6',
+    borderWidth: 0,
+    // borderRadius: 5
   },
 });
