@@ -23,11 +23,13 @@ export default class MainPlants extends React.Component {
       nutrientDays: 0,
       waterLevel: 0,
       lightOn: false,
-      plants: [false, false, false, false, false ,false],
+      plant: [],
       curPlantName: "Lettuce",
       curPlantType: "Red Lettuce",
       curPlantDay: 21,
       curPlantNumber: 1,
+      curHarvest: 0,
+      curHarvestTotal: 10,
     };
   }
 
@@ -43,25 +45,34 @@ export default class MainPlants extends React.Component {
     });
     const { currentUser } = firebase.auth();
     this.setState({ currentUser });
+
   }
 
   updatePlants() {
     const userId = firebase.auth().currentUser.uid;
 
     firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
-      let duplicate = this.state.plants;
-      for (let num in snapshot.val()) {
-        if (num > 0) {
-          duplicate[num-1] = true
-        }
-        this.setState({plants: duplicate});
-      }
+      var plants = [];
+      snapshot.forEach((child) => {
+         plants.push({
+            plantName: child.val().name,
+            plantType: child.val().type,
+            plantDay: child.val().day,
+            plantNumber: child.val().number,
+            harvest: child.val().harvest,
+            harvestTotal: child.val().harvestTotal,
+         });
+      });
+      //this.setState({plantCount: count});
+      this.setState({plant: plants});
+
+
     }.bind(this));
   }
+  //update plant view based on clicks!
 
   render() {
     const { currentUser } = this.state;
-
     return (
       <Fragment>
         <StatusBar barStyle="dark-content" />
@@ -97,10 +108,10 @@ export default class MainPlants extends React.Component {
               </LinearGradient>
             </View>
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
-              <PlantCard circleNumber={1}/>
-              <PlantCard circleNumber={2}/>
-              <PlantCard circleNumber={3}/>
-              <PlantCard circleNumber={4}/>
+
+
+
+
             </ScrollView>
           </View>
           <View style = {{marginHorizontal: 25}}>
