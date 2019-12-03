@@ -58,14 +58,13 @@ export default class MainPlants extends React.Component {
       firebase.database().ref('/users/' + userId + "/plants/" + i).once('value').then(function(snapshot) {
 
       plants.push({
-            plantName: snapshot.val().name,
-            plantType: snapshot.val().type,
-            plantDay: snapshot.val().day,
-            plantNumber: snapshot.val().number,
+            plantName: snapshot.val().plantName,
+            plantType: snapshot.val().plantType,
+            plantDay: snapshot.val().plantDay,
+            plantNumber: snapshot.val().plantNumber,
             harvest: snapshot.val().harvest,
             harvestTotal: snapshot.val().harvestTotal,
       });
-      console.log(snapshot.name);
       //this.setState({plantCount: count});
       this.setState({plant: plants});
 
@@ -117,7 +116,7 @@ export default class MainPlants extends React.Component {
 
 
             { this.state.plant.map(item => (
-            <PlantCard key={item.plantNumber} type={item.plantType} name={item.plantName}/>
+            <PlantCard key={item.plantNumber} num={item.plantNumber} type={item.plantType} name={item.plantName}/>
           ))}
 
             </ScrollView>
