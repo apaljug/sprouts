@@ -16,7 +16,7 @@ export default class PlantCard extends React.Component {
   }
 
   onPress() {
-    this.props.navigation.navigate('DetailScreen')
+    this.props.update(this.props.num);
   }
 
   get plantImage() {

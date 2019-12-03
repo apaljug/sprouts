@@ -12,10 +12,13 @@ export default class WaterLevel extends React.Component {
     return (
       <View style={{flexDirection: "row"}}>
         <View style={styles.bar}>
-          <LinearGradient colors={["#58AEFE", "#80C3FC", "#BDE1FF"]} style={[styles.rectangle, {height: this.props.height}]}/>
-          <Circle/>
+          <LinearGradient colors={["#58AEFE", "#80C3FC", "#BDE1FF"]} style={[styles.rectangle, {height: this.props.height}]}>
+            {/* this.props.selected == 0 ? 0 : this.props.selected == 1 ? this.props.height / 2 : this.props.height */}
+            <View style={[{ position: 'absolute', color: "#D9D9D9", width: 2, height: 45}]}/>
+          </LinearGradient>
+          <Circle color={this.props.selected == 2 ? "#80C3FC" : "#D9D9D9"}/>
           <View style={{position: 'absolute', top: this.props.height / 2}}>
-            <Circle color="#80C3FC"/>
+            <Circle color={this.props.selected >= 1 ? "#7FC4FC" : "#D9D9D9"}/>
           </View>
           <View style={{position: 'absolute', top: this.props.height}}>
             <Circle color="#BDE1FF"/>
@@ -24,12 +27,12 @@ export default class WaterLevel extends React.Component {
         {/* Not sure why this doesn't align properly, temporary fix */}
         <View style={[styles.texts, {height: this.props.height + 12}]}>
           <LinearGradient 
-            style={this.props.selected == 0 ? styles.selectedBackground : styles.unselected}
+            style={this.props.selected == 2 ? styles.selectedBackground : styles.unselected}
             start={{ x: 0, y: 2 }} 
             end={{ x: 0.7, y: 1 }} 
             locations={[0.0, 0.99]}
-            colors={this.props.selected == 0 ? ["#8FC9F8", "#1E95FA"] : ['transparent']}>
-            <Text style={this.props.selected == 0 ? styles.selectedText : styles.unselected}>Fully Filled</Text>
+            colors={this.props.selected == 2 ? ["#8FC9F8", "#1E95FA"] : ['transparent', 'transparent']}>
+            <Text style={this.props.selected == 2 ? styles.selectedText : styles.unselected}>Fully Filled</Text>
           </LinearGradient>
 
           <LinearGradient 
@@ -37,17 +40,17 @@ export default class WaterLevel extends React.Component {
             start={{ x: 0, y: 2 }} 
             end={{ x: 0.7, y: 1 }} 
             locations={[0.0, 0.99]}
-            colors={this.props.selected == 1 ? ["#8FC9F8", "#1E95FA"] : ['transparent']}>
+            colors={this.props.selected == 1 ? ["#8FC9F8", "#1E95FA"] : ['transparent', 'transparent']}>
             <Text style={this.props.selected == 1 ? styles.selectedText : styles.unselected}>Partially Filled</Text>
           </LinearGradient>
 
           <LinearGradient 
-            style={this.props.selected == 2 ? styles.selectedBackground : styles.unselected}
+            style={this.props.selected == 0 ? styles.selectedBackground : styles.unselected}
             start={{ x: 0, y: 2 }} 
             end={{ x: 0.7, y: 1 }} 
             locations={[0.0, 0.99]}
-            colors={this.props.selected == 2 ? ["#8FC9F8", "#1E95FA"] : ['transparent']}>
-            <Text style={this.props.selected == 2 ? styles.selectedText : styles.unselected}>Needs Filling</Text>
+            colors={this.props.selected == 0 ? ["#8FC9F8", "#1E95FA"] : ['transparent', 'transparent']}>
+            <Text style={this.props.selected == 0 ? styles.selectedText : styles.unselected}>Needs Filling</Text>
           </LinearGradient>
         </View>
       </View>
@@ -118,6 +121,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 22,
     width: '110%',
+    justifyContent: 'center',
   },
   unselected: {
     textAlign: "center",

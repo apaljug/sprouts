@@ -48,6 +48,20 @@ export default class MainPlants extends React.Component {
 
   }
 
+  setSummary(plantNum) {
+    console.log(this.state.plant)
+    console.log(plantNum)
+    plantNum = plantNum - 1;
+    this.setState({
+      curPlantName: this.state.plant[plantNum].plantName,
+      curPlantType: this.state.plant[plantNum].plantType,
+      curPlantDay: this.state.plant[plantNum].plantDay,
+      curPlantNumber: this.state.plant[plantNum].plantNumber,
+      curHarvest: this.state.plant[plantNum].harvest,
+      curHarvestTotal: this.state.plant[plantNum].harvestTotal,
+    })
+  }
+
   updatePlants() {
     const userId = firebase.auth().currentUser.uid;
     var plants = [];
@@ -57,16 +71,16 @@ export default class MainPlants extends React.Component {
     for (var i = 1; i <= num; i++) {
       firebase.database().ref('/users/' + userId + "/plants/" + i).once('value').then(function(snapshot) {
 
-      plants.push({
-            plantName: snapshot.val().plantName,
-            plantType: snapshot.val().plantType,
-            plantDay: snapshot.val().plantDay,
-            plantNumber: snapshot.val().plantNumber,
-            harvest: snapshot.val().harvest,
-            harvestTotal: snapshot.val().harvestTotal,
-      });
-      //this.setState({plantCount: count});
-      this.setState({plant: plants});
+        plants.push({
+              plantName: snapshot.val().plantName,
+              plantType: snapshot.val().plantType,
+              plantDay: snapshot.val().plantDay,
+              plantNumber: snapshot.val().plantNumber,
+              harvest: snapshot.val().harvest,
+              harvestTotal: snapshot.val().harvestTotal,
+        });
+        //this.setState({plantCount: count});
+        this.setState({plant: plants});
 
       }.bind(this));
     }
@@ -77,6 +91,7 @@ export default class MainPlants extends React.Component {
 
 
   render() {
+    console.log(this.state)
     const { currentUser } = this.state;
     return (
       <Fragment>
@@ -119,7 +134,7 @@ export default class MainPlants extends React.Component {
                   <View style={{height: 10, width: 3, borderRadius: 10, backgroundColor: "white", overflow: 'visible'}}> 
                     <Text style={{position:"absolute", top: -23, left: -10, width: 25, paddingVertical: 1, textAlign: 'center', backgroundColor: 'white', borderRadius: 5, fontWeight: 'bold', color: '#94F88C'}}>{this.state.curPlantDay}</Text>
                   </View>
-                  <View style={[styles.circle, {marginLeft: 'auto'}]}/>
+                  <View style={[styles.circle, {marginLeft: 'auto', borderColor: '#C6C6C6'}]}/>
                 </View>
                 <View style={{flexDirection: 'row', marginTop: 7}}>
                   <Text style={{color: 'white'}}>Last - 0</Text>
@@ -131,7 +146,7 @@ export default class MainPlants extends React.Component {
 
 
             { this.state.plant.map(item => (
-            <PlantCard key={item.plantNumber} num={item.plantNumber} type={item.plantType} name={item.plantName}/>
+            <PlantCard key={item.plantNumber} num={item.plantNumber} type={item.plantType} name={item.plantName} update={this.setSummary.bind(this)}/>
           ))}
 
             </ScrollView>
@@ -273,7 +288,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // alignContent: 'center',
     // marginTop: 'auto',
-    marginTop: 10,
+    marginTop: 20,
     alignItems: 'center',
     height: 3,
     width: '100%',
