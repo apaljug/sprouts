@@ -53,14 +53,26 @@ export default class MainPlants extends React.Component {
 
     firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
       var plants = [];
-      snapshot.forEach((child) => {
+      var test = [{ name: "Lettuce",
+      type: "Red Lettuce",
+      day: 10,
+      number: 1,
+      harvest: 10,
+      harvestTotal: 30,
+    }, { name: "Lettuce",
+    type: "Red Lettuce",
+    day: 10,
+    number: 1,
+    harvest: 10,
+    harvestTotal: 30,}]
+      test.forEach((child) => {
          plants.push({
-            plantName: child.val().name,
-            plantType: child.val().type,
-            plantDay: child.val().day,
-            plantNumber: child.val().number,
-            harvest: child.val().harvest,
-            harvestTotal: child.val().harvestTotal,
+            plantName: child.name,
+            plantType: child.type,
+            plantDay: child.day,
+            plantNumber: child.number,
+            harvest: child.harvest,
+            harvestTotal: child.harvestTotal,
          });
       });
       //this.setState({plantCount: count});
@@ -70,6 +82,8 @@ export default class MainPlants extends React.Component {
     }.bind(this));
   }
   //update plant view based on clicks!
+
+
 
   render() {
     const { currentUser } = this.state;
@@ -110,8 +124,9 @@ export default class MainPlants extends React.Component {
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
 
 
-
-
+            {this.state.plant.map(item => (
+            <PlantCard circleNumber={item.plantNumber}/>
+            ))}
             </ScrollView>
           </View>
           <View style = {{marginHorizontal: 25}}>
