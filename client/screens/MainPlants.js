@@ -97,10 +97,9 @@ export default class MainPlants extends React.Component {
               </LinearGradient>
             </View>
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
-              <PlantCard circleNumber={1}/>
-              <PlantCard circleNumber={2}/>
-              <PlantCard circleNumber={3}/>
-              <PlantCard circleNumber={4}/>
+              <PlantCard number={1} type={'strawberry'} name={'ape'}/>
+              <PlantCard number={1} type={'lettuce'} name={'ape'}/>
+              <PlantCard number={1} type={'lettuce'} name={'ape'}/>
             </ScrollView>
           </View>
           <View style = {{marginHorizontal: 25}}>
