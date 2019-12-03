@@ -81,7 +81,7 @@ export default class MainPlants extends React.Component {
               <Text style={[GlobalStyle.fontStyles, styles.header]}>Plants</Text>
               <View style={styles.rightContainer}>
                 <View style={{marginRight: 25}}>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Settings')}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewPlant')}>
                     <Text style={[GlobalStyle.fontStyles, {fontSize: 35, marginBottom: 4, fontWeight: '300'}]}>+</Text>
                   </TouchableOpacity>
                 </View>

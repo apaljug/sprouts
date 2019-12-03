@@ -19,7 +19,7 @@ export default class Settings extends React.Component {
     };
   }
 
-  static navigationOptions = { title: 'Settings' };
+  static navigationOptions = { title: 'Settings', tabBarVisible: false };
 
   componentDidMount() {
     const { currentUser } = firebase.auth()

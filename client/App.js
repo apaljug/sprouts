@@ -83,6 +83,9 @@ const PlantStack = createStackNavigator ({
   Settings: {
     screen: Settings,
   },
+  NewPlant: {
+    screen: NewPlant,
+  },
 });
 
 const ControlsStack = createStackNavigator ({
