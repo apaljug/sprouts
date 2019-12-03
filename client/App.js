@@ -73,9 +73,28 @@ const MainStack = createStackNavigator({
     }
   });
 
-const TabStack = createBottomTabNavigator ({
+const PlantStack = createStackNavigator ({
   Plants: {
     screen: MainPlants,
+  },
+  Settings: {
+    screen: Settings,
+  },
+});
+
+const ControlsStack = createStackNavigator ({
+  Controls: {
+    screen: MainControls,
+  },
+  Settings: {
+    screen: Settings,
+  },
+});
+
+
+const TabStack = createBottomTabNavigator ({
+  Plants: {
+    screen: PlantStack,
     navigationOptions:{
       tabBarLabel:'Plants',
       tabBarIcon:({tintColor})=>(
@@ -84,7 +103,7 @@ const TabStack = createBottomTabNavigator ({
     }
   },
   Controls: {
-    screen: MainControls,
+    screen: ControlsStack,
     navigationOptions:{
       tabBarLabel:'Controls',
       tabBarIcon:({tintColor})=>(
