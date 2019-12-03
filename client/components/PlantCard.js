@@ -22,9 +22,9 @@ export default class PlantCard extends React.Component {
   get plantImage() {
     console.log(this.props.type);
     switch (this.props.type) {
-      case "lettuce":
+      case "Lettuce":
         return require('../assets/lettuceIcon.png');
-      case "strawberry":
+      case "Strawberry":
         return require('../assets/strawberryIcon.png');
       default:
         return require('../assets/sproutLogo.png');

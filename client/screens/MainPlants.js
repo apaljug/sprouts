@@ -24,9 +24,9 @@ export default class MainPlants extends React.Component {
       waterLevel: 0,
       lightOn: false,
       plant: [],
-      curPlantName: "Lettuce",
-      curPlantType: "Red Lettuce",
-      curPlantDay: 21,
+      curPlantName: "Red Lettuce",
+      curPlantType: "Lettuce",
+      curPlantDay: 20,
       curPlantNumber: 1,
       curHarvest: 0,
       curHarvestTotal: 10,
@@ -131,7 +131,7 @@ export default class MainPlants extends React.Component {
                 <View style={styles.progressBar}>
                   <View style={styles.circle}/>
                   <Animated.View style={[{ backgroundColor: "#FFFFFF", width: 100 * this.state.curPlantDay / 30 + '%', height: '100%'}]}/>
-                  <View style={{height: 10, width: 3, borderRadius: 10, backgroundColor: "white", overflow: 'visible'}}> 
+                  <View style={{height: 10, width: 3, borderRadius: 10, backgroundColor: "white", overflow: 'visible'}}>
                     <Text style={{position:"absolute", top: -23, left: -10, width: 25, paddingVertical: 1, textAlign: 'center', backgroundColor: 'white', borderRadius: 5, fontWeight: 'bold', color: '#94F88C'}}>{this.state.curPlantDay}</Text>
                   </View>
                   <View style={[styles.circle, {marginLeft: 'auto', borderColor: '#C6C6C6'}]}/>
