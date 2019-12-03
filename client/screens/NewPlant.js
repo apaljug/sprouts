@@ -40,14 +40,11 @@ export default class NewPlant extends React.Component {
 
        const userId = firebase.auth().currentUser.uid;
 
-      firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
-        /*.forEach((child) => {
-          if (child.plantNumber >= this.state.number) {
-            var num = child.plantNumber + 1;
-            this.setState({number: num });
-          }
-        });
-        */
+      firebase.database().ref('/users/' + userId + "/planter").once('value').then(function(snapshot) {
+
+
+
+        this.setState({number: (snapshot.val().number + 1)});
       }.bind(this));
 
   }
@@ -58,7 +55,7 @@ export default class NewPlant extends React.Component {
     const userId = firebase.auth().currentUser.uid;
 
     const userRef = firebase.database().ref('users/'+ userId+"/plants/"+
-      this.state.location);
+      this.state.number);
     const addPlant =
     {
             plantName: this.state.name,
@@ -69,6 +66,12 @@ export default class NewPlant extends React.Component {
             harvestTotal: 30,
     };
     userRef.set(addPlant);
+    const userUp = firebase.database().ref('users/'+ userId+"/planter/");
+    const increment =
+    {
+            number: this.state.number,
+    };
+    userUp.update(increment);
     this.props.navigation.navigate('Plants');
   }
 

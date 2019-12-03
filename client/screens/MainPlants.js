@@ -50,24 +50,27 @@ export default class MainPlants extends React.Component {
 
   updatePlants() {
     const userId = firebase.auth().currentUser.uid;
+    var plants = [];
 
-    firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
-      var plants = [];
+    firebase.database().ref('/users/' + userId + "/planter").once('value').then(function(snap) {
+    var num = snap.val().number;
+    for (var i = 1; i <= num; i++) {
+      firebase.database().ref('/users/' + userId + "/plants/" + i).once('value').then(function(snapshot) {
 
-      snapshot.forEach((child) => {
-         plants.push({
-            plantName: child.name,
-            plantType: child.type,
-            plantDay: child.day,
-            plantNumber: child.number,
-            harvest: child.harvest,
-            harvestTotal: child.harvestTotal,
-         });
+      plants.push({
+            plantName: snapshot.val().name,
+            plantType: snapshot.val().type,
+            plantDay: snapshot.val().day,
+            plantNumber: snapshot.val().number,
+            harvest: snapshot.val().harvest,
+            harvestTotal: snapshot.val().harvestTotal,
       });
+      console.log(snapshot.name);
       //this.setState({plantCount: count});
       this.setState({plant: plants});
 
-
+      }.bind(this));
+    }
     }.bind(this));
   }
   //update plant view based on clicks!
@@ -113,8 +116,8 @@ export default class MainPlants extends React.Component {
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
 
 
-            { this.state.plant.map((item, key)=> (
-            <PlantCard number={item.plantNumber}/>
+            { this.state.plant.map(item => (
+            <PlantCard key={item.plantNumber} type={item.plantType} name={item.plantName}/>
           ))}
 
             </ScrollView>

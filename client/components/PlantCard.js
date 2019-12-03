@@ -40,7 +40,7 @@ export default class PlantCard extends React.Component {
     return (
       <TouchableOpacity onPress={this.onPress.bind(this)} style={[styles.card, GlobalStyle.shadow]}>
         <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 0.7, y: 1 }} locations={[0.0, 0.99]} colors={['#67F55B', '#56D064']} style={[styles.circle]}>
-          <Text style={styles.circleText}>{this.props.number}</Text>
+          <Text style={styles.circleText}>{this.props.key}</Text>
         </LinearGradient>
         <Image source={this.plantImage}
                style={[{aspectRatio: 2, resizeMode: 'contain'}, styles.imageDimensions]}/>
