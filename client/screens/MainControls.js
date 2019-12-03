@@ -24,6 +24,7 @@ export default class MainControls extends React.Component {
       nutrientDays: 0,
       waterLevel: 0,
       lightOn: false,
+      temp: 0,
     };
   }
 
@@ -52,7 +53,9 @@ export default class MainControls extends React.Component {
 
     firebase.database().ref('/users/' + userId + "/planter").once('value').then(function(snapshot) {
       this.setState({nutrientDays: snapshot.val().nutrientDays,
-        waterLevel: snapshot.val().waterLevel});
+        waterLevel: snapshot.val().waterLevel,
+      temp:snapshot.val().temp},
+      );
     }.bind(this));
   }
 
@@ -166,7 +169,7 @@ export default class MainControls extends React.Component {
                 </Text>
               </View>
               <View style={{marginLeft: 'auto', marginTop: 3}}>
-                <Text style={styles.temperatureFont}>80º F</Text>
+                <Text style={styles.temperatureFont}>{this.state.temp}º F</Text>
               </View>
             </View>
           </View>

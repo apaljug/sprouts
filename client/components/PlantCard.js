@@ -19,16 +19,33 @@ export default class PlantCard extends React.Component {
     this.props.navigation.navigate('DetailScreen')
   }
 
+  get plantImage() {
+    console.log(this.props.type);
+    switch (this.props.type) {
+      case "lettuce":
+        return require('../assets/lettuceIcon.png');
+      case "strawberry":
+        return require('../assets/strawberryIcon.png');
+      default:
+        return require('../assets/sproutLogo.png');
+    }
+  }
+
   render() {
+    /*const {typeDict} = {
+      'Lettuce' : '../assets/lettuceIcon.png',
+      'Strawberry' : '../assets/lettuceIcon.png',
+    };*/
+
     return (
       <TouchableOpacity onPress={this.onPress.bind(this)} style={[styles.card, GlobalStyle.shadow]}>
         <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 0.7, y: 1 }} locations={[0.0, 0.99]} colors={['#67F55B', '#56D064']} style={[styles.circle]}>
-          <Text style={styles.circleText}>{this.props.circleNumber}</Text>
+          <Text style={styles.circleText}>{this.props.key}</Text>
         </LinearGradient>
-        <Image source={require('../assets/lettuceIcon.png')}
+        <Image source={this.plantImage}
                style={[{aspectRatio: 2, resizeMode: 'contain'}, styles.imageDimensions]}/>
         <View style={styles.labels}>
-          <Text style={[styles.title, GlobalStyle.fontStyles]}>Lettuce</Text>
+          <Text style={[styles.title, GlobalStyle.fontStyles]}>{this.props.name}</Text>
         </View>
       </TouchableOpacity>
     )

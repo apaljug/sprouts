@@ -23,11 +23,13 @@ export default class MainPlants extends React.Component {
       nutrientDays: 0,
       waterLevel: 0,
       lightOn: false,
-      plants: [false, false, false, false, false ,false],
+      plant: [],
       curPlantName: "Lettuce",
       curPlantType: "Red Lettuce",
       curPlantDay: 21,
       curPlantNumber: 1,
+      curHarvest: 0,
+      curHarvestTotal: 10,
     };
   }
 
@@ -43,25 +45,40 @@ export default class MainPlants extends React.Component {
     });
     const { currentUser } = firebase.auth();
     this.setState({ currentUser });
+
   }
 
   updatePlants() {
     const userId = firebase.auth().currentUser.uid;
+    var plants = [];
 
-    firebase.database().ref('/users/' + userId + "/plants").once('value').then(function(snapshot) {
-      let duplicate = this.state.plants;
-      for (let num in snapshot.val()) {
-        if (num > 0) {
-          duplicate[num-1] = true
-        }
-        this.setState({plants: duplicate});
-      }
+    firebase.database().ref('/users/' + userId + "/planter").once('value').then(function(snap) {
+    var num = snap.val().number;
+    for (var i = 1; i <= num; i++) {
+      firebase.database().ref('/users/' + userId + "/plants/" + i).once('value').then(function(snapshot) {
+
+      plants.push({
+            plantName: snapshot.val().name,
+            plantType: snapshot.val().type,
+            plantDay: snapshot.val().day,
+            plantNumber: snapshot.val().number,
+            harvest: snapshot.val().harvest,
+            harvestTotal: snapshot.val().harvestTotal,
+      });
+      console.log(snapshot.name);
+      //this.setState({plantCount: count});
+      this.setState({plant: plants});
+
+      }.bind(this));
+    }
     }.bind(this));
   }
+  //update plant view based on clicks!
+
+
 
   render() {
     const { currentUser } = this.state;
-
     return (
       <Fragment>
         <StatusBar barStyle="dark-content" />
@@ -81,7 +98,7 @@ export default class MainPlants extends React.Component {
               <Text style={[GlobalStyle.fontStyles, styles.header]}>Plants</Text>
               <View style={styles.rightContainer}>
                 <View style={{marginRight: 25}}>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Settings')}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewPlant')}>
                     <Text style={[GlobalStyle.fontStyles, {fontSize: 35, marginBottom: 4, fontWeight: '300'}]}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -97,14 +114,16 @@ export default class MainPlants extends React.Component {
               </LinearGradient>
             </View>
             <ScrollView style={styles.sideScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
-              <PlantCard circleNumber={1}/>
-              <PlantCard circleNumber={2}/>
-              <PlantCard circleNumber={3}/>
-              <PlantCard circleNumber={4}/>
+
+
+            { this.state.plant.map(item => (
+            <PlantCard key={item.plantNumber} type={item.plantType} name={item.plantName}/>
+          ))}
+
             </ScrollView>
           </View>
           <View style = {{marginHorizontal: 25}}>
-            <Text style={[{marginBottom: 7.5, fontSize: 20, fontWeight: 'bold', marginTop: 30}, GlobalStyle.fontStyles]}>Tips</Text>
+            <Text style={[{marginBottom: 7.5, fontSize: 20, fontWeight: 'bold', marginTop: 30}, GlobalStyle.fontStyles]}></Text>
             <View style = {[{marginHorizontal: -7.5, backgroundColor: '#000000'}, styles.tipsContainer]}>
               <TipCard file = {'../assets/sproutLogo.png'} title = {"Plant Health"}/>
               <TipCard file = {'../assets/sproutLogo.png'} title = {"Harvesting"}/>
