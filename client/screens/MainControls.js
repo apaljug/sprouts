@@ -169,7 +169,7 @@ export default class MainControls extends React.Component {
                 </Text>
               </View>
               <View style={{marginLeft: 'auto', marginTop: 3}}>
-                <Text style={styles.temperatureFont}>{this.state.temp}º F</Text>
+                <Text style={styles.temperatureFont}>{Math.round(this.state.temp)}º F</Text>
               </View>
             </View>
           </View>
