@@ -60,3 +60,6 @@ client/*/fastlane/screenshots
 
 # Bundle artifact
 client/*.jsbundle
+
+# Node
+server/node_modules

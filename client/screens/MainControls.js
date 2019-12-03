@@ -128,7 +128,7 @@ export default class MainControls extends React.Component {
                 Water
               </Text>
               <View style = {{justifyContent: 'center', alignItems: 'center', marginTop: 13, marginBottom: 5}}>
-                <WaterLevel/>
+                <WaterLevel selected={this.state.waterLevel}/>
               </View>
             </View>
 
